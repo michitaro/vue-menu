@@ -1,15 +1,15 @@
 # Introduction
-* [DEMO](https://michitaro.github.io/menu)
-* macOS like menu component for vuejs
-* Nested menu
+## [working DEMO](https://michitaro.github.io/vue-menu)
+## Features
+* Menu component for vue2
+* Deeply nested menu supported
 * Props "checked" & "disabled"
 * Keybinds
 * Y-scrollable if necessary
 * Contextmenu
 * Builtin 2 themes (black & white)
 * Customizable color
-* Flip menu position on window edge
-* Menuitem can contain any HTML
+* Menuitem can contain any HTML not only text
 
 
 ![Screenshot](./docs/screenshot.png)
@@ -17,7 +17,7 @@
 # Usage
 ## Install
 ```sh
-npm install --save @hscmap/menu
+npm install --save @hscmap/vue-menu
 ```
 
 ## Setup
@@ -25,7 +25,7 @@ npm install --save @hscmap/menu
 ### ES6 / TypeScript
 ```typescript
 import Vue from 'vue'
-import * as hscmapMenu from '@hscmap/menu'
+import * as hscmapMenu from '@hscmap/vue-menu'
 
 Vue.use(hscmapMenu)
 ```
@@ -33,7 +33,7 @@ Vue.use(hscmapMenu)
 ### CommonJS
 ```javascript
 var Vue = require('vue')
-Vue.use(require('@hscmap/menu'))
+Vue.use(require('@hscmap/vue-menu'))
 ```
 
 # Example
@@ -62,4 +62,4 @@ Vue.use(require('@hscmap/menu'))
     </hsc-menu-style-white>
 </template>
 ```
-Other examples are available [here](http://michitaro.github.io/menu/).
+Other examples are available [here](http://michitaro.github.io/vue-menu/).

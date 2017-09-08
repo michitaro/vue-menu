@@ -1,7 +1,7 @@
 {
-  "name": "@hscmap/menu",
+  "name": "@hscmap/vue-menu",
   "version": "0.0.1",
-  "description": "Vue component of macOS like menu & contextmenu",
+  "description": "Vue component for menu & contextmenu",
   "main": "./lib/index.js",
   "types": "./lib/types/index.js",
   "scripts": {
@@ -39,5 +39,7 @@
     "Vuejs"
   ],
   "author": "Koike Michitaro",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/michitaro/vue-menu",
+  "repository": "github:michitaro/vue-menu"
 }
