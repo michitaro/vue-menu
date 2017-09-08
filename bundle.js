@@ -9201,6 +9201,10 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -14007,11 +14011,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "label": "File"
     }
-  }), _vm._v(" "), _c('hsc-menubaritem', {
+  }, [_c('hsc-menuitem', {
+    attrs: {
+      "label": "Open Directory",
+      "disabled": true
+    }
+  })], 1), _vm._v(" "), _c('hsc-menubaritem', {
     attrs: {
       "label": "Edit"
     }
-  }), _vm._v(" "), _c('hsc-menubaritem', {
+  }, [_c('hsc-menuitem', {
+    attrs: {
+      "label": "Open Directory",
+      "disabled": true
+    }
+  })], 1), _vm._v(" "), _c('hsc-menubaritem', {
     attrs: {
       "label": "Directory"
     }
@@ -14116,7 +14130,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\n    border-radius: 20pt;\n    background-color: rgba(255, 255, 255, 0.25);\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n", ""]);
+exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\n    border-radius: 20pt;\n    background-color: rgba(255, 255, 255, 0.25);\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    cursor: context-menu;\n}\n", ""]);
 
 // exports
 
@@ -14280,7 +14294,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\n    border-radius: 20pt;\n    background-color: rgba(255, 255, 255, 0.25);\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n", ""]);
+exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\n    border-radius: 20pt;\n    background-color: rgba(255, 255, 255, 0.25);\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    cursor: context-menu;\n}\n", ""]);
 
 // exports
 
@@ -14291,7 +14305,27 @@ exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('hsc-menu-style-black', [_c('hsc-menubar', {
+  return _c('hsc-menu-style-black', [_c('hsc-contextmenu', {
+    staticStyle: {
+      "position": "absolute",
+      "margin": "50px"
+    }
+  }, [_c('div', {
+    staticClass: "box",
+    staticStyle: {
+      "padding": "1em"
+    }
+  }, [_vm._v("\n            Secondary click here\n        ")]), _vm._v(" "), _c('template', {
+    slot: "contextmenu"
+  }, [_c('hsc-menuitem', {
+    attrs: {
+      "label": "MenuItem 1"
+    }
+  }), _vm._v(" "), _c('hsc-menuitem', {
+    attrs: {
+      "label": "MenuItem 2"
+    }
+  })], 1)], 2), _vm._v(" "), _c('hsc-menubar', {
     staticStyle: {
       "border-radius": "0 0 4pt 0"
     }
@@ -14349,28 +14383,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "keybind": "meta+v",
       "disabled": true
     }
-  })], 1)], 1), _vm._v(" "), _c('hsc-contextmenu', {
-    staticStyle: {
-      "position": "absolute",
-      "margin": "50px",
-      "z-index": "-1"
-    }
-  }, [_c('div', {
-    staticClass: "box",
-    staticStyle: {
-      "padding": "1em"
-    }
-  }, [_vm._v("\n            Secondary click here\n        ")]), _vm._v(" "), _c('template', {
-    slot: "contextmenu"
-  }, [_c('hsc-menuitem', {
-    attrs: {
-      "label": "MenuItem 1"
-    }
-  }), _vm._v(" "), _c('hsc-menuitem', {
-    attrs: {
-      "label": "MenuItem 2"
-    }
-  })], 1)], 2)], 1)
+  })], 1)], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
