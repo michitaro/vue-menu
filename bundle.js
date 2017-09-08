@@ -12357,7 +12357,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     style: (_vm.style),
     on: {
       "mousedown": _vm.mousedown,
-      "mouseover": _vm.mouseenter,
+      "mouseenter": _vm.mouseenter,
       "mouseleave": _vm.mouseleave
     }
   }, [_vm._v("\n    " + _vm._s(_vm.label) + "\n    "), _c('x-menu', {
