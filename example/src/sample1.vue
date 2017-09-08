@@ -22,7 +22,8 @@
                 <hsc-menuitem label="Check" @click="checked=true" :disabled="checked" />
                 <hsc-menuitem label="Unheck" @click="checked=false" :disabled="!checked" />
                 <hsc-menu-separator/>
-                <hsc-menuitem label="(Checked)" :checked="checked" :disabled="true" />
+                <hsc-menuitem :label="checked ? '😃 Smile' : '😯 Normal'" :checked="checked" :disabled="true" />
+
             </hsc-menubaritem>
         </hsc-menubar>
     </hsc-menu-style-white>
