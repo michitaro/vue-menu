@@ -10322,7 +10322,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
     attrs: {
-      "label": "(Checked)",
+      "label": _vm.checked ? '😃 Smile' : '😯 Normal',
       "checked": _vm.checked,
       "disabled": true
     }
