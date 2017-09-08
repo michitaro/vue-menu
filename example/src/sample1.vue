@@ -28,8 +28,9 @@
     </hsc-menu-style-white>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+
+export default <any>{
     data() {
         return { checked: true }
     },

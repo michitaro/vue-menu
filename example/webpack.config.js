@@ -1,5 +1,6 @@
 module.exports = {
     entry: [
+        "es6-promise/auto",
         "./src/main.ts",
         "file-loader?name=index.html!./src/index.html",
     ],

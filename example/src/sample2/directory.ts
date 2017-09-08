@@ -22,7 +22,7 @@ for (const path of paths) {
 
 
 import Vue from 'vue'
-import { Menuitem } from "../../.."
+import { Menuitem } from "../../../src"
 
 
 function menuitem(h: Vue.CreateElement, entry: Entry): Vue.VNode {

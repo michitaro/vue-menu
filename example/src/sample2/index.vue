@@ -4,9 +4,6 @@
             <hsc-menubaritem label="File">
                 <hsc-menuitem label="Open Directory" :disabled="true" />
             </hsc-menubaritem>
-            <hsc-menubaritem label="Edit">
-                <hsc-menuitem label="Open Directory" :disabled="true" />
-            </hsc-menubaritem>
             <hsc-menubaritem label="Directory">
                 <directory />
             </hsc-menubaritem>
@@ -14,10 +11,10 @@
     </hsc-menu-style-white>
 </template>
 
-<script>
+<script lang="ts">
 import directory from './directory'
 
-export default {
+export default <any>{
     components: { directory }
 }
 </script>

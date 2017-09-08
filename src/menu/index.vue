@@ -1,10 +1,12 @@
 <template>
     <div class="fixed">
-        <transition :name="fade">
-            <div ref="menu" v-show="isOpen" class="menu" @mousedown.stop.prevent @mouseup.stop :style='style'>
-                <slot/>
-            </div>
-        </transition>
+        <div ref="wrapper" style="position: absolute;">
+            <transition :name="fade">
+                <div ref="menu" v-show="isOpen" class="menu" @mousedown.stop.prevent @mouseup.stop :style='style'>
+                    <slot/>
+                </div>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -15,7 +17,6 @@ export default MenuType
 
 <style lang="scss" >
 .menu {
-    position: absolute;
     display: inline-block;
     font-family: sans-serif;
     border-radius: 4pt;

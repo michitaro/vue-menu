@@ -22,15 +22,15 @@ export class MenuType extends Vue {
     submenuPosition: 'left' | 'right' = 'right'
 
     open(x: number, y: number, position: 'left' | 'right' = 'right') {
-        this.isOpen = true
         this.setPosition(x, y, position)
+        this.isOpen = true;
     }
 
     close(fade: boolean, parent = false) {
         if (this.isOpen) {
             this.fade = fade ? 'fade' : 'none'
             this.isOpen = false
-            fade || ((this.$refs.menu as HTMLElement).style.display = 'none') // vue synchronizes dom to vdom at several millisecond intervals            
+            fade || (this.menuElement().style.display = 'none') // vue synchronizes dom to vdom at several millisecond intervals
             this.$emit(MenuCloseEvent.type, new MenuCloseEvent(parent))
         }
         if (parent && this.parentMenuitem) {
@@ -39,31 +39,39 @@ export class MenuType extends Vue {
     }
 
     setPosition(x: number, y: number, position: 'left' | 'right') {
-        show(this.$refs.menu as HTMLElement, (el) => {
-            const style = el.style
-            let rect = el.getBoundingClientRect()
+        show([this.menuElement(), this.wrapperElement()], ([menu, wrapper]) => {
+            let rect = menu.getBoundingClientRect()
 
-            style.maxHeight = `${window.innerHeight - 2 * PADDING}px`
-            style.left = `${position == 'right' ? x : x - rect.width + 1}px`
-            style.top = `${y}px`
+            menu.style.maxHeight = `${window.innerHeight - 2 * PADDING}px`
 
-            rect = el.getBoundingClientRect()
+            wrapper.style.left = `${position == 'right' ? x : x - rect.width + 1}px`
+            wrapper.style.top = `${y}px`
+
+            rect = menu.getBoundingClientRect()
 
             if (rect.bottom > window.innerHeight) {
-                el.style.top = `${window.innerHeight - rect.height}px`
+                wrapper.style.top = `${window.innerHeight - rect.height}px`
             }
 
             this.submenuPosition = position
 
             if (rect.right > window.innerWidth) {
                 this.submenuPosition = 'left'
-                el.style.left = `${x - rect.width - (this.parentMenuitem ? this.parentMenuitem.$el.clientWidth : 0)}px`
+                wrapper.style.left = `${x - rect.width - (this.parentMenuitem ? this.parentMenuitem.$el.clientWidth : 0)}px`
             }
             if (rect.left < 0) {
                 this.submenuPosition = 'right'
-                el.style.left = `${x + (this.parentMenuitem ? this.parentMenuitem.$el.clientWidth : 0)}px`
+                wrapper.style.left = `${x + (this.parentMenuitem ? this.parentMenuitem.$el.clientWidth : 0)}px`
             }
         })
+    }
+
+    menuElement() {
+        return <HTMLDivElement>this.$refs.menu
+    }
+
+    wrapperElement() {
+        return <HTMLDivElement>this.$refs.wrapper
     }
 
     get style() {
@@ -72,11 +80,17 @@ export class MenuType extends Vue {
 }
 
 
-function show(target: HTMLElement, cb: (el: HTMLElement) => void) {
-    const { display, visibility } = target.style
-    target.style.display = 'block'
-    target.style.visibility = 'visible'
-    cb(target)
-    target.style.display = display
-    target.style.visibility = visibility
+function show(targets: HTMLElement[], cb: (els: HTMLElement[]) => void) {
+    const originalStyle = targets.map(target => {
+        const { display, visibility } = target.style
+        target.style.display = 'block'
+        target.style.visibility = 'visible'
+        return { display, visibility }
+    })
+    cb(targets)
+    targets.forEach((target, i) => {
+        const { display, visibility } = originalStyle[i]
+        target.style.display = display
+        target.style.visibility = visibility
+    })
 }

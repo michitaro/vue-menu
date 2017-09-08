@@ -11,6 +11,8 @@ export declare class MenuType extends Vue {
     open(x: number, y: number, position?: 'left' | 'right'): void;
     close(fade: boolean, parent?: boolean): void;
     setPosition(x: number, y: number, position: 'left' | 'right'): void;
+    menuElement(): HTMLDivElement;
+    wrapperElement(): HTMLDivElement;
     readonly style: {
         padding: string;
         alignContent?: string | null | undefined;

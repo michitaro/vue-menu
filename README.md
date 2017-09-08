@@ -10,7 +10,8 @@
 * Builtin 2 themes (black & white)
 * Customizable color
 * Menuitem can contain any HTML not only text
-
+* Tested on Safari10, Chrom60, Firefox55, IE11, Edge38 for PCs
+* Not works on mobile devices 😞
 
 ![Screenshot](./docs/screenshot.png)
 

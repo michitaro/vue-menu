@@ -22,7 +22,7 @@
     </my-theme>
 </template>
 
-<script>
+<script lang="ts">
 import { StyleFactory } from '../../src'
 import Vue from 'vue'
 
@@ -44,7 +44,7 @@ const separator = {
     backgroundColor: '#f00'
 }
 
-export default {
+export default <any>{
     components: {
         'my-theme': StyleFactory({
             menu: baseColor,
