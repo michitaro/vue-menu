@@ -1,5 +1,5 @@
 <template>
-    <div class="menubaritem" :style="style" @mousedown="mousedown" @mouseover="mouseenter" @mouseleave="mouseleave">
+    <div class="menubaritem" :style="style" @mousedown="mousedown" @mouseenter="mouseenter" @mouseleave="mouseleave">
         {{label}}
         <x-menu ref="menu">
             <slot/>
