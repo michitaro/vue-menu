@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -27,6 +28,7 @@
         ul {
             position: fixed;
             bottom: 0;
+            /* top: 50px; */
             padding: 0;
         }
 
@@ -41,8 +43,22 @@
             bottom: 0;
             right: 0;
         }
+
+        a.active {
+            background-color: #aaa;
+        }
     </style>
     <script src="./bundle.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var sampleId = location.search || '?Sample1'
+            var as = document.querySelectorAll('a')
+            for (var i = 0; i < as.length; i++) {
+                var a = as.item(i)
+                '?' + a.href.split('?')[1] == sampleId && a.classList.add('active')
+            }
+        })
+    </script>
 </head>
 
 <body>
