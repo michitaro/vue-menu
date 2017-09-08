@@ -1,12 +1,13 @@
 {
   "name": "@hscmap/menu",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Vue component of macOS like menu & contextmenu",
   "main": "./lib/index.js",
   "types": "./lib/types/index.js",
   "scripts": {
     "prepublish": "webpack",
-    "example": "webpack --context example --config ./example/webpack.config.js"
+    "example": "webpack --context example --config ./example/webpack.config.js",
+    "example-server": "webpack-dev-server --hot --progress --context example --config ./example/webpack.config.js"
   },
   "dependencies": {
     "@hscmap/keybind": "0.0.1",
