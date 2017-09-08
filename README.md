@@ -1,5 +1,5 @@
 # Introduction
-## [working DEMO](https://michitaro.github.io/vue-menu)
+## [Working Demo](https://michitaro.github.io/vue-menu)
 ## Features
 * Menu component for vue2
 * Deeply nested menu supported
