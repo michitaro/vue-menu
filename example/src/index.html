@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>menu sample</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #777;
+        }
+
+        a {
+            color: black;
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.5em;
+        }
+
+        ul {
+            position: fixed;
+            bottom: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0 0 0 1em;
+            background-color: #eee;
+            box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);
+            border-radius: 4pt;
+            text-align: center;
+        }
+
+        li:hover {
+            box-shadow: 0 0 4pt rgba(0, 0, 0, 0.5);
+            background-color: #aaa;
+        }
+    </style>
+    <script src="./bundle.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="?Sample1">Menu</a></li>
+        <li><a href="?Sample2">Deeply Nested Menu</a></li>
+        <li><a href="?Sample3">Context Menu</a></li>
+        <li><a href="?Sample4">Theme (black)</a></li>
+        <li><a href="?Sample5">Customizable Theme</a></li>
+    </ul>
+</body>
+
+</html>
