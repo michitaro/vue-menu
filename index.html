@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>menu sample</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #777;
+        }
+
+        a {
+            color: black;
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.5em;
+            margin: 0.5em;
+            border-radius: 4pt;
+            background-color: #eee;
+            box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);
+        }
+
+        a:hover {
+            background-color: #ddd;
+        }
+
+        ul {
+            position: fixed;
+            bottom: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0 0 0 1em;
+            /* background-color: #eee; */
+            /* box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25); */
+            /* border-radius: 4pt; */
+            text-align: center;
+            /* padding: 0.5em; */
+        }
+    </style>
+    <script src="./bundle.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="?Sample1">Menu</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample1.vue" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample2">Deeply Nested Menu</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample2" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample3">Context Menu</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample3.vue" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample4">Theme (black)</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample4.vue" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample5">Customizable Theme</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample5.vue" target="_blank">(code)</a>
+        </li>
+    </ul>
+</body>
+
+</html>
