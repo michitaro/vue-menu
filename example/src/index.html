@@ -14,6 +14,14 @@
             display: inline-block;
             text-decoration: none;
             padding: 0.5em;
+            margin: 0.5em;
+            border-radius: 4pt;
+            background-color: #eee;
+            box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);
+        }
+
+        a:hover {
+            background-color: #ddd;
         }
 
         ul {
@@ -25,15 +33,7 @@
         li {
             display: inline-block;
             margin: 0 0 0 1em;
-            background-color: #eee;
-            box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);
-            border-radius: 4pt;
             text-align: center;
-        }
-
-        li:hover {
-            box-shadow: 0 0 4pt rgba(0, 0, 0, 0.5);
-            background-color: #aaa;
         }
     </style>
     <script src="./bundle.js"></script>
@@ -41,11 +41,36 @@
 
 <body>
     <ul>
-        <li><a href="?Sample1">Menu</a></li>
-        <li><a href="?Sample2">Deeply Nested Menu</a></li>
-        <li><a href="?Sample3">Context Menu</a></li>
-        <li><a href="?Sample4">Theme (black)</a></li>
-        <li><a href="?Sample5">Customizable Theme</a></li>
+        <li>
+            <a href="?Sample1">Menu</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample1.vue" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample2">Deeply Nested Menu</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample2" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample3">Context Menu</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample3.vue" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample4">Theme (black)</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample4.vue" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample5">Customizable Theme</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample5.vue" target="_blank">(code)</a>
+        </li>
+        <li>
+            <a href="?Sample6">Non-text MenuItem</a>
+            <br />
+            <a href="https://github.com/michitaro/menu/blob/master/example/src/sample6.vue" target="_blank">(code)</a>
+        </li>
     </ul>
 </body>
 

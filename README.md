@@ -1,3 +1,43 @@
+# Introduction
+* [DEMO](https://michitaro.github.io/menu)
+* macOS like menu component for vuejs
+* Nested menu
+* Props "checked" & "disabled"
+* Keybinds
+* Y-scrollable if necessary
+* Contextmenu
+* Builtin 2 themes (black & white)
+* Customizable color
+* Flip menu position on window edge
+* Menuitem can contain any HTML
+
+
+![Screenshot](./docs/screenshot.png)
+
+# Usage
+## Install
+```sh
+npm install --save @hscmap/menu
+```
+
+## Setup
+
+### ES6 / TypeScript
+```typescript
+import Vue from 'vue'
+import * as hscmapMenu from '@hscmap/menu'
+
+Vue.use(hscmapMenu)
+```
+
+### CommonJS
+```javascript
+var Vue = require('vue')
+Vue.use(require('@hscmap/menu'))
+```
+
+# Example
+```html
 <template>
     <hsc-menu-style-white>
         <hsc-menubar style="border-radius: 0 0 4pt 0;">
@@ -18,23 +58,8 @@
                 <hsc-menuitem label="Copy" keybind="meta+c" @click="window.alert('Copy')" />
                 <hsc-menuitem label="Paste" keybind="meta+v" @click="window.alert('Paste')" :disabled="true" />
             </hsc-menubaritem>
-            <hsc-menubaritem label="Checkmark">
-                <hsc-menuitem label="Check" @click="checked=true" :disabled="checked" />
-                <hsc-menuitem label="Unheck" @click="checked=false" :disabled="!checked" />
-                <hsc-menu-separator/>
-                <hsc-menuitem label="(Checked)" :checked="checked" :disabled="true" />
-            </hsc-menubaritem>
         </hsc-menubar>
     </hsc-menu-style-white>
 </template>
-
-<script>
-export default {
-    data() {
-        return { checked: true }
-    },
-    computed: {
-        window() { return window }
-    }
-}
-</script>
+```
+Other examples are available [here](http://michitaro.github.io/menu/).

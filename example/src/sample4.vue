@@ -1,6 +1,15 @@
 <template>
     <hsc-menu-style-black>
-
+        <hsc-contextmenu style="position: absolute; margin: 50px;">
+            <div class="box" style="padding: 1em;">
+                Secondary click here
+            </div>
+            <template slot="contextmenu">
+                <hsc-menuitem label="MenuItem 1" />
+                <hsc-menuitem label="MenuItem 2" />
+            </template>
+        </hsc-contextmenu>
+    
         <hsc-menubar style="border-radius: 0 0 4pt 0;">
             <hsc-menubaritem label="File">
                 <hsc-menuitem label="New" />
@@ -20,17 +29,6 @@
                 <hsc-menuitem label="Paste" keybind="meta+v" :disabled="true" />
             </hsc-menubaritem>
         </hsc-menubar>
-    
-        <hsc-contextmenu style="position: absolute; margin: 50px; z-index: -1;">
-            <div class="box" style="padding: 1em;">
-                Secondary click here
-            </div>
-            <template slot="contextmenu">
-                <hsc-menuitem label="MenuItem 1" />
-                <hsc-menuitem label="MenuItem 2" />
-            </template>
-        </hsc-contextmenu>
-        
     </hsc-menu-style-black>
 </template>
 
@@ -40,5 +38,6 @@
     border-radius: 20pt;
     background-color: rgba(255, 255, 255, 0.25);
     user-select: none;
+    cursor: context-menu;
 }
 </style>
