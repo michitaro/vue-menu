@@ -18,7 +18,7 @@ export class MenuitemType extends Vue {
     @Inject()
     menuStyle: MenuStyle
 
-    @Prop({ type: String, required: true })
+    @Prop({ type: String, default: "" })
     label: string
 
     @Prop({ type: Boolean, default: false })

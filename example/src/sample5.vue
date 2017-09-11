@@ -1,24 +1,24 @@
 <template>
     <my-theme>
-        <hsc-menubar style="border-radius: 0 0 4pt 0;">
-            <hsc-menubaritem label="File">
-                <hsc-menuitem label="New" />
-                <hsc-menuitem label="Open" />
+        <hsc-menu-bar style="border-radius: 0 0 4pt 0;">
+            <hsc-menu-bar-item label="File">
+                <hsc-menu-item label="New" />
+                <hsc-menu-item label="Open" />
                 <hsc-menu-separator/>
-                <hsc-menuitem label="Save" :disabled="true" />
-                <hsc-menuitem label="Export to">
-                    <hsc-menuitem label="PDF" />
-                    <hsc-menuitem label="HTML" />
-                </hsc-menuitem>
-            </hsc-menubaritem>
-            <hsc-menubaritem label="Edit">
-                <hsc-menuitem label="Undo" keybind="meta+z" />
+                <hsc-menu-item label="Save" :disabled="true" />
+                <hsc-menu-item label="Export to">
+                    <hsc-menu-item label="PDF" />
+                    <hsc-menu-item label="HTML" />
+                </hsc-menu-item>
+            </hsc-menu-bar-item>
+            <hsc-menu-bar-item label="Edit">
+                <hsc-menu-item label="Undo" keybind="meta+z" />
                 <hsc-menu-separator/>
-                <hsc-menuitem label="Cut" keybind="meta+x" />
-                <hsc-menuitem label="Copy" keybind="meta+c" />
-                <hsc-menuitem label="Paste" keybind="meta+v" :disabled="true" />
-            </hsc-menubaritem>
-        </hsc-menubar>
+                <hsc-menu-item label="Cut" keybind="meta+x" />
+                <hsc-menu-item label="Copy" keybind="meta+c" />
+                <hsc-menu-item label="Paste" keybind="meta+v" :disabled="true" />
+            </hsc-menu-bar-item>
+        </hsc-menu-bar>
     </my-theme>
 </template>
 

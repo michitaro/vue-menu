@@ -1,20 +1,20 @@
 <template>
     <hsc-menu-style-white>
-        <hsc-menubar style="border-radius: 0 0 4pt 0;">
-            <hsc-menubaritem label="Inputs">
-                <hsc-menuitem>
+        <hsc-menu-bar style="border-radius: 0 0 4pt 0;">
+            <hsc-menu-bar-item label="Inputs">
+                <hsc-menu-item>
                     <div slot="body" @mousedown.stop>
                         Range:
                         <input type="range" @mousedown.stop />
                     </div>
-                </hsc-menuitem>
-                <hsc-menuitem>
+                </hsc-menu-item>
+                <hsc-menu-item>
                     <div slot="body" @mousedown.stop>
                         Input:
                         <input type="text" />
                     </div>
-                </hsc-menuitem>
-                <hsc-menuitem>
+                </hsc-menu-item>
+                <hsc-menu-item>
                     <div slot="body" @mousedown.stop>
                         Select:
                         <select>
@@ -22,8 +22,8 @@
                             <option>opt 2</option>
                         </select>
                     </div>
-                </hsc-menuitem>
-            </hsc-menubaritem>
-        </hsc-menubar>
+                </hsc-menu-item>
+            </hsc-menu-bar-item>
+        </hsc-menu-bar>
     </hsc-menu-style-white>
 </template>

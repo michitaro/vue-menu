@@ -27,13 +27,13 @@ export {
     StyleWhite,
 }
 
-export function install(vue: typeof Vue, options = { prefix: 'hsc-' }) {
+export function install(vue: typeof Vue, options = { prefix: 'hsc-menu-' }) {
     const { prefix } = options
-    vue.component(`${prefix}menubar`, Menubar)
-    vue.component(`${prefix}menubaritem`, Menubaritem)
-    vue.component(`${prefix}contextmenu`, Contextmenu)
-    vue.component(`${prefix}menuitem`, Menuitem)
-    vue.component(`${prefix}menu-separator`, Separator)
-    vue.component(`${prefix}menu-style-black`, StyleBlack)
-    vue.component(`${prefix}menu-style-white`, StyleWhite)
+    vue.component(`${prefix}bar`, Menubar)
+    vue.component(`${prefix}bar-item`, Menubaritem)
+    vue.component(`${prefix}context-menu`, Contextmenu)
+    vue.component(`${prefix}item`, Menuitem)
+    vue.component(`${prefix}separator`, Separator)
+    vue.component(`${prefix}style-black`, StyleBlack)
+    vue.component(`${prefix}style-white`, StyleWhite)
 }

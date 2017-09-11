@@ -1,14 +1,14 @@
 <template>
     <hsc-menu-style-white>
-        <hsc-contextmenu style="margin: 50px;">
+        <hsc-menu-context-menu style="margin: 50px;">
             <div class="box" style="padding: 1em;">
                 Secondary click here
             </div>
             <template slot="contextmenu">
-                <hsc-menuitem label="MenuItem 1" />
-                <hsc-menuitem label="MenuItem 2" />
+                <hsc-menu-item label="MenuItem 1" />
+                <hsc-menu-item label="MenuItem 2" />
             </template>
-        </hsc-contextmenu>
+        </hsc-menu-context-menu>
     </hsc-menu-style-white>
 </template>
 

@@ -1,13 +1,13 @@
 <template>
     <hsc-menu-style-white>
-        <hsc-menubar style="border-radius: 0 0 4pt 0;">
-            <hsc-menubaritem label="File">
-                <hsc-menuitem label="Open Directory" :disabled="true" />
-            </hsc-menubaritem>
-            <hsc-menubaritem label="Directory">
+        <hsc-menu-bar style="border-radius: 0 0 4pt 0;">
+            <hsc-menu-bar-item label="File">
+                <hsc-menu-item label="Open Directory" :disabled="true" />
+            </hsc-menu-bar-item>
+            <hsc-menu-bar-item label="Directory">
                 <directory />
-            </hsc-menubaritem>
-        </hsc-menubar>
+            </hsc-menu-bar-item>
+        </hsc-menu-bar>
     </hsc-menu-style-white>
 </template>
 
