@@ -8358,15 +8358,15 @@ exports.StyleFactory = style_1.StyleFactory;
 exports.StyleWhite = style_1.StyleWhite;
 exports.StyleBlack = style_1.StyleBlack;
 function install(vue, options) {
-    if (options === void 0) { options = { prefix: 'hsc-' }; }
+    if (options === void 0) { options = { prefix: 'hsc-menu-' }; }
     var prefix = options.prefix;
-    vue.component(prefix + "menubar", index_vue_1.default);
-    vue.component(prefix + "menubaritem", index_vue_2.default);
-    vue.component(prefix + "contextmenu", contextmenu_vue_1.default);
-    vue.component(prefix + "menuitem", index_vue_4.default);
-    vue.component(prefix + "menu-separator", separator_vue_1.default);
-    vue.component(prefix + "menu-style-black", style_1.StyleBlack);
-    vue.component(prefix + "menu-style-white", style_1.StyleWhite);
+    vue.component(prefix + "bar", index_vue_1.default);
+    vue.component(prefix + "bar-item", index_vue_2.default);
+    vue.component(prefix + "context-menu", contextmenu_vue_1.default);
+    vue.component(prefix + "item", index_vue_4.default);
+    vue.component(prefix + "separator", separator_vue_1.default);
+    vue.component(prefix + "style-black", style_1.StyleBlack);
+    vue.component(prefix + "style-white", style_1.StyleWhite);
 }
 exports.install = install;
 
@@ -8790,7 +8790,7 @@ var MenuitemType = (function (_super) {
         vue_property_decorator_1.Inject()
     ], MenuitemType.prototype, "menuStyle", void 0);
     __decorate([
-        vue_property_decorator_1.Prop({ type: String, required: true })
+        vue_property_decorator_1.Prop({ type: String, default: "" })
     ], MenuitemType.prototype, "label", void 0);
     __decorate([
         vue_property_decorator_1.Prop({ type: Boolean, default: false })
@@ -10203,15 +10203,15 @@ exports.default = {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('hsc-menu-style-white', [_c('hsc-menubar', {
+  return _c('hsc-menu-style-white', [_c('hsc-menu-bar', {
     staticStyle: {
       "border-radius": "0 0 4pt 0"
     }
-  }, [_c('hsc-menubaritem', {
+  }, [_c('hsc-menu-bar-item', {
     attrs: {
       "label": "File"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "New"
     },
@@ -10220,7 +10220,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.window.alert('New')
       }
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Open"
     },
@@ -10229,7 +10229,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.window.alert('Open')
       }
     }
-  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Save",
       "disabled": true
@@ -10239,23 +10239,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.window.alert('Save')
       }
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Export to"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "PDF"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "HTML"
     }
-  })], 1)], 1), _vm._v(" "), _c('hsc-menubaritem', {
+  })], 1)], 1), _vm._v(" "), _c('hsc-menu-bar-item', {
     attrs: {
       "label": "Edit"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "Undo",
       "keybind": "meta+z"
@@ -10265,7 +10265,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.window.alert('Undo')
       }
     }
-  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Cut",
       "keybind": "meta+x"
@@ -10275,7 +10275,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.window.alert('Cut')
       }
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Copy",
       "keybind": "meta+c"
@@ -10285,7 +10285,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.window.alert('Copy')
       }
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Paste",
       "keybind": "meta+v",
@@ -10296,11 +10296,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.window.alert('Paste')
       }
     }
-  })], 1), _vm._v(" "), _c('hsc-menubaritem', {
+  })], 1), _vm._v(" "), _c('hsc-menu-bar-item', {
     attrs: {
       "label": "Checkmark"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "Check",
       "disabled": _vm.checked
@@ -10310,7 +10310,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.checked = true
       }
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Unheck",
       "disabled": !_vm.checked
@@ -10320,11 +10320,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.checked = false
       }
     }
-  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
-      "label": _vm.checked ? '😃 Smile' : '😯 Normal',
-      "checked": _vm.checked,
-      "disabled": true
+      "label": _vm.checked ? '😃 Checked' : '😯 Not Checked',
+      "checked": _vm.checked
+    },
+    on: {
+      "click": function($event) {
+        _vm.checked = !_vm.checked
+      }
     }
   })], 1)], 1)], 1)
 }
@@ -12959,20 +12963,20 @@ exports.StyleWhite = StyleFactory((function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('hsc-menu-style-white', [_c('hsc-menubar', {
+  return _c('hsc-menu-style-white', [_c('hsc-menu-bar', {
     staticStyle: {
       "border-radius": "0 0 4pt 0"
     }
-  }, [_c('hsc-menubaritem', {
+  }, [_c('hsc-menu-bar-item', {
     attrs: {
       "label": "File"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "Open Directory",
       "disabled": true
     }
-  })], 1), _vm._v(" "), _c('hsc-menubaritem', {
+  })], 1), _vm._v(" "), _c('hsc-menu-bar-item', {
     attrs: {
       "label": "Directory"
     }
@@ -13088,7 +13092,7 @@ exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('hsc-menu-style-white', [_c('hsc-contextmenu', {
+  return _c('hsc-menu-style-white', [_c('hsc-menu-context-menu', {
     staticStyle: {
       "margin": "50px"
     }
@@ -13099,11 +13103,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("\n            Secondary click here\n        ")]), _vm._v(" "), _c('template', {
     slot: "contextmenu"
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "MenuItem 1"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "MenuItem 2"
     }
@@ -13219,7 +13223,7 @@ exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('hsc-menu-style-black', [_c('hsc-contextmenu', {
+  return _c('hsc-menu-style-black', [_c('hsc-menu-context-menu', {
     staticStyle: {
       "position": "absolute",
       "margin": "50px"
@@ -13231,67 +13235,67 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("\n            Secondary click here\n        ")]), _vm._v(" "), _c('template', {
     slot: "contextmenu"
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "MenuItem 1"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "MenuItem 2"
     }
-  })], 1)], 2), _vm._v(" "), _c('hsc-menubar', {
+  })], 1)], 2), _vm._v(" "), _c('hsc-menu-bar', {
     staticStyle: {
       "border-radius": "0 0 4pt 0"
     }
-  }, [_c('hsc-menubaritem', {
+  }, [_c('hsc-menu-bar-item', {
     attrs: {
       "label": "File"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "New"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Open"
     }
-  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Save",
       "disabled": true
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Export to"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "PDF"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "HTML"
     }
-  })], 1)], 1), _vm._v(" "), _c('hsc-menubaritem', {
+  })], 1)], 1), _vm._v(" "), _c('hsc-menu-bar-item', {
     attrs: {
       "label": "Edit"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "Undo",
       "keybind": "meta+z"
     }
-  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Cut",
       "keybind": "meta+x"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Copy",
       "keybind": "meta+c"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Paste",
       "keybind": "meta+v",
@@ -13402,59 +13406,59 @@ exports.default = {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('my-theme', [_c('hsc-menubar', {
+  return _c('my-theme', [_c('hsc-menu-bar', {
     staticStyle: {
       "border-radius": "0 0 4pt 0"
     }
-  }, [_c('hsc-menubaritem', {
+  }, [_c('hsc-menu-bar-item', {
     attrs: {
       "label": "File"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "New"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Open"
     }
-  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Save",
       "disabled": true
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Export to"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "PDF"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "HTML"
     }
-  })], 1)], 1), _vm._v(" "), _c('hsc-menubaritem', {
+  })], 1)], 1), _vm._v(" "), _c('hsc-menu-bar-item', {
     attrs: {
       "label": "Edit"
     }
-  }, [_c('hsc-menuitem', {
+  }, [_c('hsc-menu-item', {
     attrs: {
       "label": "Undo",
       "keybind": "meta+z"
     }
-  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Cut",
       "keybind": "meta+x"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Copy",
       "keybind": "meta+c"
     }
-  }), _vm._v(" "), _c('hsc-menuitem', {
+  }), _vm._v(" "), _c('hsc-menu-item', {
     attrs: {
       "label": "Paste",
       "keybind": "meta+v",
@@ -13528,15 +13532,15 @@ if (false) {(function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('hsc-menu-style-white', [_c('hsc-menubar', {
+  return _c('hsc-menu-style-white', [_c('hsc-menu-bar', {
     staticStyle: {
       "border-radius": "0 0 4pt 0"
     }
-  }, [_c('hsc-menubaritem', {
+  }, [_c('hsc-menu-bar-item', {
     attrs: {
       "label": "Inputs"
     }
-  }, [_c('hsc-menuitem', [_c('div', {
+  }, [_c('hsc-menu-item', [_c('div', {
     on: {
       "mousedown": function($event) {
         $event.stopPropagation();
@@ -13552,7 +13556,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         $event.stopPropagation();
       }
     }
-  })])]), _vm._v(" "), _c('hsc-menuitem', [_c('div', {
+  })])]), _vm._v(" "), _c('hsc-menu-item', [_c('div', {
     on: {
       "mousedown": function($event) {
         $event.stopPropagation();
@@ -13563,7 +13567,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "text"
     }
-  })])]), _vm._v(" "), _c('hsc-menuitem', [_c('div', {
+  })])]), _vm._v(" "), _c('hsc-menu-item', [_c('div', {
     on: {
       "mousedown": function($event) {
         $event.stopPropagation();
