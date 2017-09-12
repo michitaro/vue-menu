@@ -1,10 +1,12 @@
 {
   "name": "@hscmap/vue-menu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vue component for menu & contextmenu",
   "main": "./lib/index.js",
   "types": "./lib/types/index.js",
-  "files": ["./lib"],
+  "files": [
+    "./lib"
+  ],
   "scripts": {
     "prepublish": "webpack",
     "example": "webpack --context example --config ./example/webpack.config.js",
