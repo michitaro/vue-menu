@@ -17,7 +17,6 @@ export default MenuType
 
 <style lang="scss" >
 .menu {
-    display: inline-block;
     font-family: sans-serif;
     border-radius: 4pt;
     cursor: default;

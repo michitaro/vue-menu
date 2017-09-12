@@ -39,6 +39,9 @@ export class MenuType extends Vue {
     }
 
     setPosition(x: number, y: number, position: 'left' | 'right') {
+        x = Math.floor(x)
+        y = Math.floor(y)
+        
         show([this.menuElement(), this.wrapperElement()], ([menu, wrapper]) => {
             let rect = menu.getBoundingClientRect()
 

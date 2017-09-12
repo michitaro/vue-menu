@@ -2,20 +2,13 @@
     <div>
         <x-keybinder v-if="keybind" :source="keybind" :enabled="!disabled" @keybindmatch="$emit('click')" />
         <div class="menuitem" :style="style" @mouseenter.stop="mouseenter" @mouseleave="mouseleave" @mouseup="mouseup" @mousedown.stop.prevent>
-            <div class="right">
-                <span :style="{ visibility: $slots.default ? 'visible' : 'hidden' }">&rtrif;</span>
-                <span v-html="keybindHTML" />
+            <div style="padding: 0 0.3em;" :style="{ visibility: checked ? 'visible' : 'hidden' }">&check;</div>
+            <div class="label">
+                <slot v-if="$slots.body" name="body" />
+                <div v-else v-html="label" />
             </div>
-            <div style="display: inline-block; padding: 0 0.3em;" :style="{ visibility: checked ? 'visible' : 'hidden' }">&check;</div>
-            <div v-if="$slots.body" style="display: inline-block;">
-                <slot name="body" />
-            </div>
-            <div v-else style="display: inline-block;">
-                {{label}}
-            </div>
-
-            <div style="display: inline-block; visibility: hidden; margin: 0 0.5em;">
-                <span>&rtrif;</span>
+            <div style="padding-left: 1em;">
+                <span v-if="$slots.default">&rtrif;</span>
                 <span v-html="keybindHTML" />
             </div>
             <div v-if="$slots.default">
@@ -34,11 +27,12 @@ export default MenuitemType
 
 <style lang="scss" scoped>
 .menuitem {
+    display: flex;
     padding: 2px 8pt 2px 4pt;
     white-space: nowrap;
 }
 
-.right {
-    float: right;
+.label {
+    flex-grow: 1;
 }
 </style>
