@@ -1,3 +1,2 @@
-/docs
-/example
-/src
+*
+!/lib
