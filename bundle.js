@@ -8358,15 +8358,15 @@ exports.StyleFactory = style_1.StyleFactory;
 exports.StyleWhite = style_1.StyleWhite;
 exports.StyleBlack = style_1.StyleBlack;
 function install(vue, options) {
-    if (options === void 0) { options = { prefix: 'hsc-menu-' }; }
+    if (options === void 0) { options = { prefix: 'hsc-menu' }; }
     var prefix = options.prefix;
-    vue.component(prefix + "bar", index_vue_1.default);
-    vue.component(prefix + "bar-item", index_vue_2.default);
-    vue.component(prefix + "context-menu", contextmenu_vue_1.default);
-    vue.component(prefix + "item", index_vue_4.default);
-    vue.component(prefix + "separator", separator_vue_1.default);
-    vue.component(prefix + "style-black", style_1.StyleBlack);
-    vue.component(prefix + "style-white", style_1.StyleWhite);
+    vue.component(prefix + "-bar", index_vue_1.default);
+    vue.component(prefix + "-bar-item", index_vue_2.default);
+    vue.component(prefix + "-context-menu", contextmenu_vue_1.default);
+    vue.component(prefix + "-item", index_vue_4.default);
+    vue.component(prefix + "-separator", separator_vue_1.default);
+    vue.component(prefix + "-style-black", style_1.StyleBlack);
+    vue.component(prefix + "-style-white", style_1.StyleWhite);
 }
 exports.install = install;
 
@@ -8433,6 +8433,8 @@ var MenuType = (function (_super) {
     };
     MenuType.prototype.setPosition = function (x, y, position) {
         var _this = this;
+        x = Math.floor(x);
+        y = Math.floor(y);
         show([this.menuElement(), this.wrapperElement()], function (_a) {
             var menu = _a[0], wrapper = _a[1];
             var rect = menu.getBoundingClientRect();
@@ -12195,7 +12197,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "\n.menu {\n  display: inline-block;\n  font-family: sans-serif;\n  border-radius: 4pt;\n  cursor: default;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow: auto;\n}\n.fixed {\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n.fade-leave-active {\n  transition: opacity .2s ease;\n}\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.menu {\n  font-family: sans-serif;\n  border-radius: 4pt;\n  cursor: default;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow: auto;\n}\n.fixed {\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n.fade-leave-active {\n  transition: opacity .2s ease;\n}\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -12622,7 +12624,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "\n.menuitem[data-v-78e19f2c] {\n  padding: 2px 8pt 2px 4pt;\n  white-space: nowrap;\n}\n.right[data-v-78e19f2c] {\n  float: right;\n}\n", ""]);
+exports.push([module.i, "\n.menuitem[data-v-78e19f2c] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding: 2px 8pt 2px 4pt;\n  white-space: nowrap;\n}\n.label[data-v-78e19f2c] {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n", ""]);
 
 // exports
 
@@ -12727,38 +12729,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }
   }, [_c('div', {
-    staticClass: "right"
-  }, [_c('span', {
-    style: ({
-      visibility: _vm.$slots.default ? 'visible' : 'hidden'
-    })
-  }, [_vm._v("▸")]), _vm._v(" "), _c('span', {
-    domProps: {
-      "innerHTML": _vm._s(_vm.keybindHTML)
-    }
-  })]), _vm._v(" "), _c('div', {
     staticStyle: {
-      "display": "inline-block",
       "padding": "0 0.3em"
     },
     style: ({
       visibility: _vm.checked ? 'visible' : 'hidden'
     })
-  }, [_vm._v("✓")]), _vm._v(" "), (_vm.$slots.body) ? _c('div', {
-    staticStyle: {
-      "display": "inline-block"
+  }, [_vm._v("✓")]), _vm._v(" "), _c('div', {
+    staticClass: "label"
+  }, [(_vm.$slots.body) ? _vm._t("body") : _c('div', {
+    domProps: {
+      "innerHTML": _vm._s(_vm.label)
     }
-  }, [_vm._t("body")], 2) : _c('div', {
+  })], 2), _vm._v(" "), _c('div', {
     staticStyle: {
-      "display": "inline-block"
+      "padding-left": "1em"
     }
-  }, [_vm._v("\n            " + _vm._s(_vm.label) + "\n        ")]), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "display": "inline-block",
-      "visibility": "hidden",
-      "margin": "0 0.5em"
-    }
-  }, [_c('span', [_vm._v("▸")]), _vm._v(" "), _c('span', {
+  }, [(_vm.$slots.default) ? _c('span', [_vm._v("▸")]) : _vm._e(), _vm._v(" "), _c('span', {
     domProps: {
       "innerHTML": _vm._s(_vm.keybindHTML)
     }
@@ -13111,7 +13098,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "label": "MenuItem 2"
     }
-  })], 1)], 2)], 1)
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "MenuItem 2"
+    }
+  }, [_c('hsc-menu-item', {
+    attrs: {
+      "label": "MenuItem 4"
+    }
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "MenuItem 5"
+    }
+  })], 1)], 1)], 2)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
