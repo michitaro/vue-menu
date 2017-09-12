@@ -7,6 +7,10 @@
             <template slot="contextmenu">
                 <hsc-menu-item label="MenuItem 1" />
                 <hsc-menu-item label="MenuItem 2" />
+                <hsc-menu-item label="MenuItem 2">
+                    <hsc-menu-item label="MenuItem 4" />
+                    <hsc-menu-item label="MenuItem 5" />
+                </hsc-menu-item>
             </template>
         </hsc-menu-context-menu>
     </hsc-menu-style-white>
