@@ -1,7 +1,11 @@
 # vue-menu
-# Introduction
-## [Working Demo](https://michitaro.github.io/vue-menu)
-## Features
+## Introduction
+Recent web applications are mainly for mobile environments, and UI premised on mouse operation such as window, context-menu nested-menu is no longer mainstream.
+However the context-menu and nested-menu is still effective way to have operations on deeply structured data.
+This package is an implementation of {nested,context}-menu for PC environment as a Vue Component.
+
+### [Working Demo](https://michitaro.github.io/vue-menu)
+### Features
 * Menu component for vue2
 * Deeply nested menu supported
 * Props "checked" & "disabled"
