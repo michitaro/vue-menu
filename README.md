@@ -31,9 +31,9 @@ npm install --save @hscmap/vue-menu
 ### ES6 / TypeScript
 ```typescript
 import Vue from 'vue'
-import * as hscmapMenu from '@hscmap/vue-menu'
+import * as VueMenu from '@hscmap/vue-menu'
 
-Vue.use(hscmapMenu)
+Vue.use(VueMenu)
 ```
 
 ### CommonJS
