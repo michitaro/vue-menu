@@ -69,3 +69,8 @@ Vue.use(require('@hscmap/vue-menu'))
 </template>
 ```
 Other examples are available [here](http://michitaro.github.io/vue-menu/).
+
+See also [vue-window](https://github.com/michitaro/vue-window). This is a window UI component  for vue2 with the same color themes.
+
+# Contributing
+Any comments, suggestions or PRs are welcome 😀
