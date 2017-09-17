@@ -13395,11 +13395,6 @@ if (false) {(function () {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var src_1 = __webpack_require__(9);
-var baseColor = {
-    backgroundColor: '#365c68',
-    color: 'white',
-    boxShadow: '0 4pt 4pt rgba(0, 0, 0, 0.25)'
-};
 var active = {
     backgroundColor: '#436f7c'
 };
@@ -13407,13 +13402,21 @@ var disabled = {
     opacity: '0.5'
 };
 var separator = {
-    backgroundColor: '#f00'
+    backgroundColor: 'rgba(255, 0, 0, 0.5)'
 };
 exports.default = {
     components: {
         'my-theme': src_1.StyleFactory({
-            menu: baseColor,
-            menubar: baseColor,
+            menu: {
+                background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.25), #436f7c)',
+                color: 'white',
+                boxShadow: '0 2pt 4pt rgba(0, 0, 0, 0.5)'
+            },
+            menubar: {
+                background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.25), #436f7c)',
+                color: 'white',
+                boxShadow: '0 4pt 4pt rgba(0, 0, 0, 0.25)'
+            },
             active: active,
             disabled: disabled,
             separator: separator
