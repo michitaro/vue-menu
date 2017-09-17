@@ -476,7 +476,7 @@ function applyToTag (styleElement, obj) {
 vue = vue && vue.hasOwnProperty('default') ? vue['default'] : vue;
 var vueClassComponent__default = 'default' in vueClassComponent ? vueClassComponent['default'] : vueClassComponent;
 
-/** vue-property-decorator verson 5.2.1 MIT LICENSE copyright 2017 kaorun343 */
+/** vue-property-decorator verson 5.3.0 MIT LICENSE copyright 2017 kaorun343 */
 /**
  * decorator of an inject
  * @param key key
@@ -576,7 +576,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var MenuitemActivateEvent = (function () {
+var MenuitemActivateEvent = /** @class */ (function () {
     function MenuitemActivateEvent(menuitem) {
         this.menuitem = menuitem;
     }
@@ -584,7 +584,7 @@ var MenuitemActivateEvent = (function () {
     return MenuitemActivateEvent;
 }());
 exports.MenuitemActivateEvent = MenuitemActivateEvent;
-var MenuCloseEvent = (function () {
+var MenuCloseEvent = /** @class */ (function () {
     function MenuCloseEvent(fromChild) {
         if (fromChild === void 0) { fromChild = false; }
         this.fromChild = fromChild;
@@ -593,7 +593,7 @@ var MenuCloseEvent = (function () {
     return MenuCloseEvent;
 }());
 exports.MenuCloseEvent = MenuCloseEvent;
-var MenubaritemActivateEvent = (function () {
+var MenubaritemActivateEvent = /** @class */ (function () {
     function MenubaritemActivateEvent(menubaritem) {
         this.menubaritem = menubaritem;
     }
@@ -601,7 +601,7 @@ var MenubaritemActivateEvent = (function () {
     return MenubaritemActivateEvent;
 }());
 exports.MenubaritemActivateEvent = MenubaritemActivateEvent;
-var MenubarDactivateEvent = (function () {
+var MenubarDactivateEvent = /** @class */ (function () {
     function MenubarDactivateEvent() {
     }
     MenubarDactivateEvent.type = 'menubardeactivate';
@@ -8357,6 +8357,7 @@ var style_1 = __webpack_require__(60);
 exports.StyleFactory = style_1.StyleFactory;
 exports.StyleWhite = style_1.StyleWhite;
 exports.StyleBlack = style_1.StyleBlack;
+exports.StyleMetal = style_1.StyleMetal;
 function install(vue, options) {
     if (options === void 0) { options = { prefix: 'hsc-menu' }; }
     var prefix = options.prefix;
@@ -8367,6 +8368,7 @@ function install(vue, options) {
     vue.component(prefix + "-separator", separator_vue_1.default);
     vue.component(prefix + "-style-black", style_1.StyleBlack);
     vue.component(prefix + "-style-white", style_1.StyleWhite);
+    vue.component(prefix + "-style-metal", style_1.StyleMetal);
 }
 exports.install = install;
 
@@ -8405,7 +8407,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var vue_property_decorator_1 = __webpack_require__(3);
 var event_1 = __webpack_require__(4);
 exports.PADDING = 4;
-var MenuType = (function (_super) {
+var MenuType = /** @class */ (function (_super) {
     __extends(MenuType, _super);
     function MenuType() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -8524,7 +8526,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var vue_property_decorator_1 = __webpack_require__(3);
 var event_1 = __webpack_require__(4);
-var MenubarType = (function (_super) {
+var MenubarType = /** @class */ (function (_super) {
     __extends(MenubarType, _super);
     function MenubarType() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -8652,7 +8654,7 @@ var event_1 = __webpack_require__(4);
 var global_1 = __webpack_require__(12);
 var keybinder_1 = __webpack_require__(53);
 var keybind = __webpack_require__(14);
-var MenuitemType = (function (_super) {
+var MenuitemType = /** @class */ (function (_super) {
     __extends(MenuitemType, _super);
     function MenuitemType() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -8910,7 +8912,7 @@ exports.html = html;
 
 __webpack_require__(16);
 __webpack_require__(19);
-module.exports = __webpack_require__(75);
+module.exports = __webpack_require__(79);
 
 
 /***/ }),
@@ -10108,6 +10110,7 @@ var sample3_vue_1 = __webpack_require__(62);
 var sample4_vue_1 = __webpack_require__(66);
 var sample5_vue_1 = __webpack_require__(70);
 var sample6_vue_1 = __webpack_require__(73);
+var sample7_vue_1 = __webpack_require__(75);
 var hscMenu = __webpack_require__(9);
 vue_1.default.use(hscMenu);
 window.addEventListener('load', function (e) {
@@ -10118,6 +10121,7 @@ window.addEventListener('load', function (e) {
         Sample4: sample4_vue_1.default,
         Sample5: sample5_vue_1.default,
         Sample6: sample6_vue_1.default,
+        Sample7: sample7_vue_1.default,
     }[location.search.substr(1)] || sample1_vue_1.default;
     new vue_1.default({
         el: emptyElement(),
@@ -10416,7 +10420,7 @@ exports.default = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entry = (function () {
+var Entry = /** @class */ (function () {
     function Entry(label) {
         this.label = label;
         this.children = {};
@@ -12071,7 +12075,7 @@ var vue_property_decorator_1 = __webpack_require__(3);
 var index_vue_1 = __webpack_require__(6);
 var global_1 = __webpack_require__(12);
 var event_1 = __webpack_require__(4);
-var MenubaritemType = (function (_super) {
+var MenubaritemType = /** @class */ (function (_super) {
     __extends(MenubaritemType, _super);
     function MenubaritemType() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -12304,7 +12308,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Sync = (function () {
+var Sync = /** @class */ (function () {
     function Sync() {
         this.q = [];
         this.open = true;
@@ -12458,7 +12462,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var vue_property_decorator_1 = __webpack_require__(3);
 var index_vue_1 = __webpack_require__(6);
 var event_1 = __webpack_require__(4);
-var ContextmenuType = (function (_super) {
+var ContextmenuType = /** @class */ (function (_super) {
     __extends(ContextmenuType, _super);
     function ContextmenuType() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -12665,7 +12669,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var vue_property_decorator_1 = __webpack_require__(3);
 var keybind = __webpack_require__(14);
-var Keybinder = (function (_super) {
+var Keybinder = /** @class */ (function (_super) {
     __extends(Keybinder, _super);
     function Keybinder() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -12937,6 +12941,25 @@ exports.StyleWhite = StyleFactory((function () {
     return {
         menu: base,
         menubar: base,
+        separator: { backgroundColor: 'rgba(127, 127, 127, 0.5)' },
+        active: { backgroundColor: 'rgba(127, 127, 127, 0.75)', color: '#fff' },
+        disabled: { opacity: '0.5' },
+    };
+})());
+exports.StyleMetal = StyleFactory((function () {
+    var menubar = {
+        background: 'linear-gradient(to bottom, rgb(215, 215, 215), rgb(191, 191, 191))',
+        color: 'black',
+        boxShadow: '0 2pt 6pt rgba(0, 0, 0, 0.5)',
+    };
+    var menu = {
+        backgroundColor: 'rgb(215, 215, 215)',
+        color: 'black',
+        boxShadow: '0 2pt 6pt rgba(0, 0, 0, 0.5)',
+    };
+    return {
+        menu: menu,
+        menubar: menubar,
         separator: { backgroundColor: 'rgba(127, 127, 127, 0.5)' },
         active: { backgroundColor: 'rgba(127, 127, 127, 0.75)', color: '#fff' },
         disabled: { opacity: '0.5' },
@@ -13588,6 +13611,196 @@ if (false) {
 
 /***/ }),
 /* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0a19c0df_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_sample7_vue__ = __webpack_require__(78);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(76)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0a19c0df_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_sample7_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/sample7.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] sample7.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0a19c0df", Component.options)
+  } else {
+    hotAPI.reload("data-v-0a19c0df", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(77);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("151e00a2", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0a19c0df\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./sample7.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0a19c0df\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./sample7.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.box {\n    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.25);\n    border-radius: 20pt;\n    background-color: rgba(255, 255, 255, 0.25);\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    cursor: context-menu;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('hsc-menu-style-metal', [_c('hsc-menu-context-menu', {
+    staticStyle: {
+      "position": "absolute",
+      "margin": "50px"
+    }
+  }, [_c('div', {
+    staticClass: "box",
+    staticStyle: {
+      "padding": "1em"
+    }
+  }, [_vm._v("\n            Secondary click here\n        ")]), _vm._v(" "), _c('template', {
+    slot: "contextmenu"
+  }, [_c('hsc-menu-item', {
+    attrs: {
+      "label": "MenuItem 1"
+    }
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "MenuItem 2"
+    }
+  })], 1)], 2), _vm._v(" "), _c('hsc-menu-bar', {
+    staticStyle: {
+      "border-radius": "0 0 4pt 0"
+    }
+  }, [_c('hsc-menu-bar-item', {
+    attrs: {
+      "label": "File"
+    }
+  }, [_c('hsc-menu-item', {
+    attrs: {
+      "label": "New"
+    }
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "Open"
+    }
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "Save",
+      "disabled": true
+    }
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "Export to"
+    }
+  }, [_c('hsc-menu-item', {
+    attrs: {
+      "label": "PDF"
+    }
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "HTML"
+    }
+  })], 1)], 1), _vm._v(" "), _c('hsc-menu-bar-item', {
+    attrs: {
+      "label": "Edit"
+    }
+  }, [_c('hsc-menu-item', {
+    attrs: {
+      "label": "Undo",
+      "keybind": "meta+z"
+    }
+  }), _vm._v(" "), _c('hsc-menu-separator'), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "Cut",
+      "keybind": "meta+x"
+    }
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "Copy",
+      "keybind": "meta+c"
+    }
+  }), _vm._v(" "), _c('hsc-menu-item', {
+    attrs: {
+      "label": "Paste",
+      "keybind": "meta+v",
+      "disabled": true
+    }
+  })], 1)], 1)], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-0a19c0df", esExports)
+  }
+}
+
+/***/ }),
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "index.html";
