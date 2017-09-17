@@ -5,6 +5,7 @@ import Sample3 from './sample3.vue'
 import Sample4 from './sample4.vue'
 import Sample5 from './sample5.vue'
 import Sample6 from './sample6.vue'
+import Sample7 from './sample7.vue'
 import * as hscMenu from "../../src"
 
 
@@ -19,6 +20,7 @@ window.addEventListener('load', e => {
         Sample4,
         Sample5,
         Sample6,
+        Sample7,
     } as any)[location.search.substr(1)] || Sample1
 
     new Vue({

@@ -12,7 +12,7 @@ This package is an implementation of {nested,context}-menu for PC environment as
 * Keybinds
 * Y-scrollable if necessary
 * Contextmenu
-* Builtin 2 themes (black & white)
+* Builtin 3 themes (white, metal & black)
 * Customizable color
 * Menuitem can contain any HTML not only text
 * Tested on Safari10, Chrome60, Firefox55, IE11, Edge38 for PCs

@@ -9,7 +9,7 @@ import Separator from "./separator.vue"
 import { MenubarType } from "./menubar/script"
 import { MenuType } from "./menu/script"
 import { MenuitemType } from "./menuitem/script"
-import { MenuStyle, StyleFactory, StyleWhite, StyleBlack } from "./style"
+import { MenuStyle, StyleFactory, StyleWhite, StyleBlack, StyleMetal } from "./style"
 
 export {
     Menubar,
@@ -25,6 +25,7 @@ export {
     StyleFactory,
     StyleBlack,
     StyleWhite,
+    StyleMetal,
 }
 
 export function install(vue: typeof Vue, options = { prefix: 'hsc-menu' }) {
@@ -36,4 +37,5 @@ export function install(vue: typeof Vue, options = { prefix: 'hsc-menu' }) {
     vue.component(`${prefix}-separator`, Separator)
     vue.component(`${prefix}-style-black`, StyleBlack)
     vue.component(`${prefix}-style-white`, StyleWhite)
+    vue.component(`${prefix}-style-metal`, StyleMetal)
 }

@@ -55,3 +55,24 @@ export const StyleWhite: Vue.ComponentOptions<Vue> = StyleFactory((() => {
         disabled: { opacity: '0.5' },
     }
 })())
+
+
+export const StyleMetal: Vue.ComponentOptions<Vue> = StyleFactory((() => {
+    const menubar: Style = {
+        background: 'linear-gradient(to bottom, rgb(215, 215, 215), rgb(191, 191, 191))',
+        color: 'black',
+        boxShadow: '0 2pt 6pt rgba(0, 0, 0, 0.5)',
+    }
+    const menu: Style = {
+        backgroundColor: 'rgb(215, 215, 215)',
+        color: 'black',
+        boxShadow: '0 2pt 6pt rgba(0, 0, 0, 0.5)',
+    }
+    return {
+        menu,
+        menubar,
+        separator: { backgroundColor: 'rgba(127, 127, 127, 0.5)' },
+        active: { backgroundColor: 'rgba(127, 127, 127, 0.75)', color: '#fff' },
+        disabled: { opacity: '0.5' },
+    }
+})())
