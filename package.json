@@ -7,7 +7,9 @@
   "scripts": {
     "prepublish": "webpack",
     "example": "webpack --context example --config ./example/webpack.config.js",
-    "example-server": "webpack-dev-server --hot --progress --context example --config ./example/webpack.config.js"
+    "example-server": "webpack-dev-server --hot --progress --context example --config ./example/webpack.config.js",
+    "standalone": "webpack --context standalone --config ./standalone/webpack.config.js",
+    "gh-pages": "npm run example && npm run standalone && cp standalone/dist/vue-menu-standalone.js example/dist && gh-pages -d example/dist"
   },
   "dependencies": {
     "@hscmap/keybind": "0.0.1",

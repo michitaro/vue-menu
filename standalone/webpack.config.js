@@ -1,11 +1,11 @@
 module.exports = {
     entry: [
-        "./src/index.js",
+        "./src/index.ts",
         "file-loader?name=example.html!./src/example.html",
     ],
     output: {
         path: `${__dirname}/dist`,
-        filename: 'vue-menu.js',
+        filename: 'vue-menu-standalone.js',
     },
     resolve: {
         extensions: ['.ts', '.js'],

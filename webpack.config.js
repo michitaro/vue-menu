@@ -14,7 +14,15 @@ module.exports = {
     module: {
         rules: [
             { test: /\.vue$/, use: 'vue-loader' },
-            { test: /\.ts$/, loader: 'ts-loader', options: { appendTsSuffixTo: [/\.vue$/] } }
+            {
+                test: /\.ts$/, loader: 'ts-loader', options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                    compilerOptions: {
+                        declaration: true,
+                        declarationDir: "types",
+                    }
+                }
+            }
         ],
     },
     externals: [

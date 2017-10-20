@@ -1,20 +1,17 @@
 {
     "compilerOptions": {
-        "experimentalDecorators": true,
-        "declaration": true,
-        "declarationDir": "types",
         "strict": true,
+        "experimentalDecorators": true,
         "target": "es5",
-        "importHelpers": true,
         "lib": [
-            "dom",
             "es5",
+            "dom",
             "es2015.promise"
         ],
         "module": "es2015",
         "moduleResolution": "node"
     },
     "include": [
-        "./src/**/*.ts"
+        "./src/**/*.*"
     ]
 }
