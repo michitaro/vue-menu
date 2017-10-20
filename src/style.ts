@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import * as vue from 'vue'
 
 
 export type Style = Partial<CSSStyleDeclaration>
@@ -13,19 +14,19 @@ export interface MenuStyle {
 }
 
 
-export function StyleFactory(menuStyle: MenuStyle): Vue.ComponentOptions<Vue> {
+export function StyleFactory(menuStyle: MenuStyle): vue.ComponentOptions<Vue> {
     return {
         provide() {
             return { menuStyle }
         },
-        render(this: Vue, h: Vue.CreateElement) {
+        render(this: Vue, h: vue.CreateElement) {
             return h('div', this.$slots.default)
         }
     }
 }
 
 
-export const StyleBlack: Vue.ComponentOptions<Vue> = StyleFactory((() => {
+export const StyleBlack: vue.ComponentOptions<Vue> = StyleFactory((() => {
     const base: Style = {
         backgroundColor: 'rgba(31, 31, 31, 0.9)',
         color: 'white',
@@ -41,7 +42,7 @@ export const StyleBlack: Vue.ComponentOptions<Vue> = StyleFactory((() => {
 })())
 
 
-export const StyleWhite: Vue.ComponentOptions<Vue> = StyleFactory((() => {
+export const StyleWhite: vue.ComponentOptions<Vue> = StyleFactory((() => {
     const base: Style = {
         backgroundColor: 'rgba(255, 255, 255, 0.9)',
         color: 'black',
@@ -57,7 +58,7 @@ export const StyleWhite: Vue.ComponentOptions<Vue> = StyleFactory((() => {
 })())
 
 
-export const StyleMetal: Vue.ComponentOptions<Vue> = StyleFactory((() => {
+export const StyleMetal: vue.ComponentOptions<Vue> = StyleFactory((() => {
     const menubar: Style = {
         background: 'linear-gradient(to bottom, rgb(215, 215, 215), rgb(191, 191, 191))',
         color: 'black',

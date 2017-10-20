@@ -1,4 +1,5 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
+import { CreateElement } from "vue"
 import * as keybind from '@hscmap/keybind'
 
 
@@ -26,5 +27,5 @@ export class Keybinder extends Vue {
         this.off()
     }
 
-    render(h: Vue.CreateElement) { }
+    render(h: CreateElement) { }
 }

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue, * as vue from 'vue'
 import Sample1 from './sample1.vue'
 import Sample2 from './sample2/index.vue'
 import Sample3 from './sample3.vue'
@@ -13,7 +13,7 @@ Vue.use(hscMenu)
 
 
 window.addEventListener('load', e => {
-    const Sample: Vue.Component = ({
+    const Sample: vue.Component = ({
         Sample1,
         Sample2,
         Sample3,
