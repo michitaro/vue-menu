@@ -6,6 +6,8 @@ import { MenuStyle } from "../style"
 
 export const PADDING = 4
 
+export type Direction = 'left' | 'right'
+
 
 @Component({
     provide() { return { parentMenu: this } }
@@ -19,9 +21,9 @@ export class MenuType extends Vue {
 
     isOpen = false
     fade = 'none'
-    submenuPosition: 'left' | 'right' = 'right'
+    submenuDirection: Direction = 'right'
 
-    open(x: number, y: number, position: 'left' | 'right' = 'right') {
+    open(x: number, y: number, position: Direction = 'right') {
         this.setPosition(x, y, position)
         this.isOpen = true;
     }
@@ -38,7 +40,7 @@ export class MenuType extends Vue {
         }
     }
 
-    setPosition(x: number, y: number, position: 'left' | 'right') {
+    setPosition(x: number, y: number, direction: Direction) {
         x = Math.floor(x)
         y = Math.floor(y)
         
@@ -47,7 +49,7 @@ export class MenuType extends Vue {
 
             menu.style.maxHeight = `${window.innerHeight - 2 * PADDING}px`
 
-            wrapper.style.left = `${position == 'right' ? x : x - rect.width + 1}px`
+            wrapper.style.left = `${direction == 'right' ? x : x - rect.width + 1}px`
             wrapper.style.top = `${y}px`
 
             rect = menu.getBoundingClientRect()
@@ -56,14 +58,14 @@ export class MenuType extends Vue {
                 wrapper.style.top = `${window.innerHeight - rect.height}px`
             }
 
-            this.submenuPosition = position
+            this.submenuDirection = direction
 
             if (rect.right > window.innerWidth) {
-                this.submenuPosition = 'left'
+                this.submenuDirection = 'left'
                 wrapper.style.left = `${x - rect.width - (this.parentMenuitem ? this.parentMenuitem.$el.clientWidth : 0)}px`
             }
             if (rect.left < 0) {
-                this.submenuPosition = 'right'
+                this.submenuDirection = 'right'
                 wrapper.style.left = `${x + (this.parentMenuitem ? this.parentMenuitem.$el.clientWidth : 0)}px`
             }
         })

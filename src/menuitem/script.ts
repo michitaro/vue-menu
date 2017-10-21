@@ -62,8 +62,8 @@ export class MenuitemType extends Vue {
         const childMenu = this.childMenu()
         if (childMenu) {
             const rect = this.$el.getBoundingClientRect()
-            const submenuPosition = this.parentMenu.submenuPosition
-            childMenu.open(rect[submenuPosition], rect.top - PADDING, submenuPosition)
+            const submenuDirection = this.parentMenu.submenuDirection
+            childMenu.open(rect[submenuDirection], rect.top - PADDING, submenuDirection)
         }
     }
 
