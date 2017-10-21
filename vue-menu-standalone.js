@@ -769,7 +769,7 @@ var MenuType = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.isOpen = false;
         _this.fade = 'none';
-        _this.submenuPosition = 'right';
+        _this.submenuDirection = 'right';
         return _this;
     }
     MenuType.prototype.open = function (x, y, position) {
@@ -789,7 +789,7 @@ var MenuType = /** @class */ (function (_super) {
             this.parentMenuitem.parentMenu.close(fade, true);
         }
     };
-    MenuType.prototype.setPosition = function (x, y, position) {
+    MenuType.prototype.setPosition = function (x, y, direction) {
         var _this = this;
         x = Math.floor(x);
         y = Math.floor(y);
@@ -797,19 +797,19 @@ var MenuType = /** @class */ (function (_super) {
             var menu = _a[0], wrapper = _a[1];
             var rect = menu.getBoundingClientRect();
             menu.style.maxHeight = window.innerHeight - 2 * PADDING + "px";
-            wrapper.style.left = (position == 'right' ? x : x - rect.width + 1) + "px";
+            wrapper.style.left = (direction == 'right' ? x : x - rect.width + 1) + "px";
             wrapper.style.top = y + "px";
             rect = menu.getBoundingClientRect();
             if (rect.bottom > window.innerHeight) {
                 wrapper.style.top = window.innerHeight - rect.height + "px";
             }
-            _this.submenuPosition = position;
+            _this.submenuDirection = direction;
             if (rect.right > window.innerWidth) {
-                _this.submenuPosition = 'left';
+                _this.submenuDirection = 'left';
                 wrapper.style.left = x - rect.width - (_this.parentMenuitem ? _this.parentMenuitem.$el.clientWidth : 0) + "px";
             }
             if (rect.left < 0) {
-                _this.submenuPosition = 'right';
+                _this.submenuDirection = 'right';
                 wrapper.style.left = x + (_this.parentMenuitem ? _this.parentMenuitem.$el.clientWidth : 0) + "px";
             }
         });
@@ -1256,8 +1256,8 @@ var MenuitemType = /** @class */ (function (_super) {
         var childMenu = this.childMenu();
         if (childMenu) {
             var rect = this.$el.getBoundingClientRect();
-            var submenuPosition = this.parentMenu.submenuPosition;
-            childMenu.open(rect[submenuPosition], rect.top - __WEBPACK_IMPORTED_MODULE_1__menu_script__["b" /* PADDING */], submenuPosition);
+            var submenuDirection = this.parentMenu.submenuDirection;
+            childMenu.open(rect[submenuDirection], rect.top - __WEBPACK_IMPORTED_MODULE_1__menu_script__["b" /* PADDING */], submenuDirection);
         }
     };
     MenuitemType.prototype.deactivate = function () {
@@ -3625,7 +3625,8 @@ var ContextmenuType = /** @class */ (function (_super) {
                 });
             }
         });
-        this.menu().open(mousedown.clientX, mousedown.clientY);
+        var position = (this.position || defaultPosition)(mousedown);
+        this.menu().open(position.x, position.y, position.direction);
     };
     ContextmenuType.prototype.close = function () {
         this.clearCancellers();
@@ -3635,6 +3636,9 @@ var ContextmenuType = /** @class */ (function (_super) {
         this.cancelMouseup && this.cancelMouseup();
         this.cancelMousedown && this.cancelMousedown();
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0_vue_property_decorator__["Prop"])({ type: Function })
+    ], ContextmenuType.prototype, "position", void 0);
     ContextmenuType = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_vue_property_decorator__["Component"])({
             components: { XMenu: __WEBPACK_IMPORTED_MODULE_1__menu_index_vue__["a" /* default */] }
@@ -3643,6 +3647,13 @@ var ContextmenuType = /** @class */ (function (_super) {
     return ContextmenuType;
 }(__WEBPACK_IMPORTED_MODULE_0_vue_property_decorator__["Vue"]));
 /* harmony default export */ __webpack_exports__["a"] = (ContextmenuType);
+function defaultPosition(e) {
+    return {
+        x: e.clientX,
+        y: e.clientY,
+        direction: 'right'
+    };
+}
 function isContextmenu(e) {
     return e.button == 2 || e.ctrlKey;
 }
