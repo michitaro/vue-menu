@@ -15,7 +15,7 @@ import { MenuType } from "./script"
 export default MenuType
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 .menu {
     font-family: sans-serif;
     border-radius: 4pt;
