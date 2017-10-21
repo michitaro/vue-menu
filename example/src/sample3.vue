@@ -13,8 +13,40 @@
                 </hsc-menu-item>
             </template>
         </hsc-menu-context-menu>
+        <hr />
+        <hsc-menu-context-menu style="margin: 50px;" :position="customPosition">
+            <div class="box" style="padding: 1em;">
+                with fixed position
+            </div>
+            <template slot="contextmenu">
+                <hsc-menu-item label="MenuItem 1" />
+                <hsc-menu-item label="MenuItem 2" />
+                <hsc-menu-item label="MenuItem 2">
+                    <hsc-menu-item label="MenuItem 4" />
+                    <hsc-menu-item label="MenuItem 5" />
+                </hsc-menu-item>
+            </template>
+        </hsc-menu-context-menu>
     </hsc-menu-style-white>
 </template>
+
+
+<script lang="ts">
+export default {
+    methods: {
+        customPosition(e: MouseEvent) {
+            const el = e.currentTarget as HTMLElement
+            const rect = el.getBoundingClientRect()
+            return {
+                x: rect.left,
+                y: rect.bottom,
+                direction: 'right'
+            }
+        }
+    }
+}
+</script>
+
 
 
 <style>

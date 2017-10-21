@@ -9,9 +9,9 @@
 
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue, Prop } from "vue-property-decorator"
 import Menu from "./menu/index.vue"
-import { MenuType } from "./menu/script"
+import { MenuType, Direction } from "./menu/script"
 import { once } from "./event"
 
 
@@ -19,6 +19,9 @@ import { once } from "./event"
     components: { XMenu: Menu }
 })
 export default class ContextmenuType extends Vue {
+    @Prop({ type: Function })
+    position?: (e: MouseEvent) => { x: number, y: number, direction: Direction }
+
     private cancelMouseup?: () => void
     private cancelMousedown?: () => void
 
@@ -44,8 +47,9 @@ export default class ContextmenuType extends Vue {
                 })
             }
         })
-        
-        this.menu().open(mousedown.clientX, mousedown.clientY)
+
+        const position = (this.position || defaultPosition)(mousedown)
+        this.menu().open(position.x, position.y, position.direction)
     }
 
     private close() {
@@ -56,6 +60,15 @@ export default class ContextmenuType extends Vue {
     private clearCancellers() {
         this.cancelMouseup && this.cancelMouseup()
         this.cancelMousedown && this.cancelMousedown()
+    }
+}
+
+
+function defaultPosition(e: MouseEvent) {
+    return {
+        x: e.clientX,
+        y: e.clientY,
+        direction: 'right' as Direction
     }
 }
 
