@@ -27,10 +27,10 @@ export class MenubarDactivateEvent {
 
 
 export function once<T extends Event>(target: HTMLElement | Document, type: string, handler: (event: T) => void) {
-    const h = (e: T) => {
+    const h = ((e: T) => {
         handler(e)
         off()
-    }
+    }) as EventListener
     const off = () => { target.removeEventListener(type, h) }
     target.addEventListener(type, h)
     return off
