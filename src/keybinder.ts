@@ -6,12 +6,12 @@ import * as keybind from '@hscmap/keybind'
 @Component
 export class Keybinder extends Vue {
     @Prop({ required: true, type: String })
-    source: string
+    source!: string
 
     @Prop({ type: Boolean, default: true })
-    enabled: boolean
+    enabled!: boolean
 
-    off: () => void
+    off!: () => void
 
     created() {
         this.off = keybind.on(this.source, e => {

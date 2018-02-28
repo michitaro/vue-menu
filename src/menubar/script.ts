@@ -9,7 +9,7 @@ import { MenuStyle } from "../style"
 })
 export class MenubarType extends Vue {
     @Inject()
-    menuStyle: MenuStyle
+    menuStyle!: MenuStyle
 
     active = false
 

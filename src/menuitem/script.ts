@@ -13,19 +13,19 @@ import { MenuStyle } from "../style"
 })
 export class MenuitemType extends Vue {
     @Inject()
-    parentMenu: MenuType
+    parentMenu!: MenuType
 
     @Inject()
-    menuStyle: MenuStyle
+    menuStyle!: MenuStyle
 
     @Prop({ type: String, default: "" })
-    label: string
+    label!: string
 
     @Prop({ type: Boolean, default: false })
-    checked: boolean
+    checked!: boolean
 
     @Prop({ type: Boolean, default: false })
-    disabled: boolean
+    disabled!: boolean
 
     @Prop({ type: String })
     keybind?: string

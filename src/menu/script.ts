@@ -17,7 +17,7 @@ export class MenuType extends Vue {
     parentMenuitem?: MenuitemType
 
     @Inject()
-    menuStyle: MenuStyle
+    menuStyle!: MenuStyle
 
     isOpen = false
     fade = 'none'

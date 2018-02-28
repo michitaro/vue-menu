@@ -12,13 +12,13 @@ import { MenuStyle } from "../style"
 })
 export class MenubaritemType extends Vue {
     @Prop({ type: String, required: true })
-    label: string
+    label!: string
 
     @Inject()
-    menubar: MenubarType
+    menubar!: MenubarType
 
     @Inject()
-    menuStyle: MenuStyle
+    menuStyle!: MenuStyle
 
     hover = false
     isOpen = false
