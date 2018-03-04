@@ -86,12 +86,14 @@ export class MenuitemType extends Vue {
     }
 
     private async flash() {
-        const d = 50
-        for (let i = 0; i < 3; ++i) {
-            this.hover = false
-            await sleep(d)
-            this.hover = true
-            await sleep(d)
+        if (this.menuStyle.animation) {
+            const d = 50
+            for (let i = 0; i < 3; ++i) {
+                this.hover = false
+                await sleep(d)
+                this.hover = true
+                await sleep(d)
+            }
         }
         this.hover = false
     }

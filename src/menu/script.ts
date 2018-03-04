@@ -30,7 +30,7 @@ export class MenuType extends Vue {
 
     close(fade: boolean, parent = false) {
         if (this.isOpen) {
-            this.fade = fade ? 'fade' : 'none'
+            this.fade = (fade && this.menuStyle.animation) ? 'fade' : 'none'
             this.isOpen = false
             fade || (this.menuElement().style.display = 'none') // vue synchronizes dom to vdom at several millisecond intervals
             this.$emit(MenuCloseEvent.type, new MenuCloseEvent(parent))
@@ -43,7 +43,7 @@ export class MenuType extends Vue {
     setPosition(x: number, y: number, direction: Direction) {
         x = Math.floor(x)
         y = Math.floor(y)
-        
+
         show([this.menuElement(), this.wrapperElement()], ([menu, wrapper]) => {
             let rect = menu.getBoundingClientRect()
 

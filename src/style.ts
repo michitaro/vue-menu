@@ -11,12 +11,17 @@ export interface MenuStyle {
     separator: Style
     active: Style
     disabled: Style
+    animation: boolean
 }
 
 
 export function StyleFactory(menuStyle: MenuStyle): vue.ComponentOptions<Vue> {
     return {
         provide() {
+            // for backward compatibility
+            if (menuStyle.animation == undefined) {
+                menuStyle.animation = true
+            }
             return { menuStyle }
         },
         render(this: Vue, h: vue.CreateElement) {
@@ -38,6 +43,7 @@ export const StyleBlack: vue.ComponentOptions<Vue> = StyleFactory((() => {
         separator: { backgroundColor: 'rgba(127, 127, 127, 0.5)' },
         active: { backgroundColor: 'rgba(127, 127, 127, 0.75)' },
         disabled: { opacity: '0.5' },
+        animation: true,
     }
 })())
 
@@ -54,6 +60,7 @@ export const StyleWhite: vue.ComponentOptions<Vue> = StyleFactory((() => {
         separator: { backgroundColor: 'rgba(127, 127, 127, 0.5)' },
         active: { backgroundColor: 'rgba(127, 127, 127, 0.75)', color: '#fff' },
         disabled: { opacity: '0.5' },
+        animation: true,
     }
 })())
 
@@ -75,5 +82,6 @@ export const StyleMetal: vue.ComponentOptions<Vue> = StyleFactory((() => {
         separator: { backgroundColor: 'rgba(127, 127, 127, 0.5)' },
         active: { backgroundColor: 'rgba(127, 127, 127, 0.75)', color: '#fff' },
         disabled: { opacity: '0.5' },
+        animation: true,
     }
 })())

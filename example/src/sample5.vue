@@ -53,7 +53,8 @@ export default <any>{
             },
             active,
             disabled,
-            separator
+            separator,
+            animation: true,
         })
     }
 }
