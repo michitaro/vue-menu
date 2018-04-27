@@ -1,3 +1,5 @@
+const { VueLoaderPlugin } = require('vue-loader')
+
 module.exports = {
     entry: [
         "es6-promise/auto",
@@ -14,7 +16,12 @@ module.exports = {
     module: {
         rules: [
             { test: /\.vue$/, use: 'vue-loader' },
-            { test: /\.ts$/, loader: 'ts-loader', options: { appendTsSuffixTo: [/\.vue$/] } }
+            { test: /\.ts$/, loader: 'ts-loader', options: { appendTsSuffixTo: [/\.vue$/] } },
+            { test: /\.css/, use: ["style-loader", "css-loader"] },
+            { test: /\.scss/, use: ["style-loader", "css-loader", "sass-loader"] },
         ],
     },
+    plugins: [
+        new VueLoaderPlugin(),
+    ],
 }
