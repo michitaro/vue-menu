@@ -28,6 +28,7 @@ export default MenuitemType
 <style lang="scss" scoped>
 .menuitem {
     display: flex;
+    align-items: baseline;
     padding: 2px 8pt 2px 4pt;
     white-space: nowrap;
 }
