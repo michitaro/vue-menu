@@ -1,22 +1,22 @@
 import { MenuitemType } from "../menuitem/script"
 import { Vue, Component, Prop, Inject } from "vue-property-decorator"
 import { MenuCloseEvent } from "../event"
-import { MenuStyle } from "../style"
+import { MenuStyle, MENU_STYLE_KEY } from "../style"
 
 
+export const PARENT_MENU_KEY = '@hscmap/vue-menu/parentMenu'
 export const PADDING = 4
-
 export type Direction = 'left' | 'right'
 
 
 @Component({
-    provide() { return { parentMenu: this } }
+    provide() { return { [PARENT_MENU_KEY]: this } }
 })
 export class MenuType extends Vue {
     @Prop()
     parentMenuitem?: MenuitemType
 
-    @Inject()
+    @Inject(MENU_STYLE_KEY)
     menuStyle!: MenuStyle
 
     isOpen = false

@@ -1,21 +1,21 @@
 import { Vue, Component, Prop, Inject } from "vue-property-decorator"
-import { MenuType, PADDING } from "../menu/script"
+import { MenuType, PADDING, PARENT_MENU_KEY } from "../menu/script"
 import Menu from "../menu/index.vue"
 import { MenuitemActivateEvent, MenuCloseEvent } from "../event"
 import { sync } from "../global"
 import { Keybinder } from "../keybinder"
 import * as keybind from "@hscmap/keybind"
-import { MenuStyle } from "../style"
+import { MenuStyle, MENU_STYLE_KEY } from "../style"
 
 
 @Component({
     components: { XMenu: Menu, XKeybinder: Keybinder }
 })
 export class MenuitemType extends Vue {
-    @Inject()
+    @Inject(PARENT_MENU_KEY)
     parentMenu!: MenuType
 
-    @Inject()
+    @Inject(MENU_STYLE_KEY)
     menuStyle!: MenuStyle
 
     @Prop({ type: String, default: "" })

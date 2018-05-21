@@ -1,14 +1,18 @@
 import { Vue, Component, Prop, Provide, Inject } from "vue-property-decorator"
 import { MenubarDactivateEvent, once } from '../event'
-import { MenuStyle } from "../style"
+import { MenuStyle, MENU_STYLE_KEY } from "../style"
+
+
+export const MENUBAR_KEY = '@hscmap/vue-menu/menubar'
+
 
 @Component({
     provide() {
-        return { menubar: this }
+        return { [MENUBAR_KEY]: this }
     }
 })
 export class MenubarType extends Vue {
-    @Inject()
+    @Inject(MENU_STYLE_KEY)
     menuStyle!: MenuStyle
 
     active = false

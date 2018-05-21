@@ -15,6 +15,9 @@ export interface MenuStyle {
 }
 
 
+export const MENU_STYLE_KEY = '@hscmap/vue-menu/menuStyle'
+
+
 export function StyleFactory(menuStyle: MenuStyle): vue.ComponentOptions<Vue> {
     return {
         provide() {
@@ -22,7 +25,7 @@ export function StyleFactory(menuStyle: MenuStyle): vue.ComponentOptions<Vue> {
             if (menuStyle.animation == undefined) {
                 menuStyle.animation = true
             }
-            return { menuStyle }
+            return { [MENU_STYLE_KEY]: menuStyle }
         },
         render(this: Vue, h: vue.CreateElement) {
             return h('div', this.$slots.default)

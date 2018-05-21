@@ -1,10 +1,10 @@
 import { Component, Vue, Prop, Inject } from "vue-property-decorator"
-import { MenubarType } from "../menubar/script"
+import { MenubarType, MENUBAR_KEY } from "../menubar/script"
 import { MenuType } from "../menu/script"
 import Menu from "../menu/index.vue"
 import { sync } from "../global"
 import { MenubaritemActivateEvent, MenuCloseEvent, MenubarDactivateEvent } from "../event"
-import { MenuStyle } from "../style"
+import { MenuStyle, MENU_STYLE_KEY } from "../style"
 
 
 @Component({
@@ -14,10 +14,10 @@ export class MenubaritemType extends Vue {
     @Prop({ type: String, required: true })
     label!: string
 
-    @Inject()
+    @Inject(MENUBAR_KEY)
     menubar!: MenubarType
 
-    @Inject()
+    @Inject(MENU_STYLE_KEY)
     menuStyle!: MenuStyle
 
     hover = false
