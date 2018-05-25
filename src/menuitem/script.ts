@@ -30,6 +30,9 @@ export class MenuitemType extends Vue {
     @Prop({ type: String })
     keybind?: string
 
+    @Prop({ default: false })
+    sync!: boolean
+
     get keybindHTML() {
         return this.keybind && keybind.html(this.keybind)
     }
@@ -74,7 +77,7 @@ export class MenuitemType extends Vue {
 
     fire() {
         sync.lock(async () => {
-            await this.flash()
+            this.sync || await this.flash()
             this.$emit('click')
             this.parentMenu.close(true, true)
         })

@@ -23,7 +23,10 @@
                 <hsc-menu-item label="Unheck" @click="checked=false" :disabled="!checked" />
                 <hsc-menu-separator/>
                 <hsc-menu-item :label="checked ? '😃 Checked' : '😯 Not Checked'" :checked="checked" @click="checked = !checked" />
-    
+            </hsc-menu-bar-item>
+            <hsc-menu-bar-item label="Window.open">
+                <hsc-menu-item label="vue-menu" @click="window.open('https://github.com/michitaro/vue-menu')" :sync="true" />
+                <hsc-menu-item label="vue-window" @click="window.open('https://github.com/michitaro/vue-window')" :sync="true" />
             </hsc-menu-bar-item>
         </hsc-menu-bar>
     </hsc-menu-style-white>
