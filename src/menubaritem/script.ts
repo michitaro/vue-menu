@@ -40,6 +40,10 @@ export class MenubaritemType extends Vue {
         return this.active ? this.menuStyle.active : {}
     }
 
+    get paddingTop() {
+        return `${this.menubar.paddingTop}px`
+    }
+
     private menu() {
         return this.$refs.menu as MenuType
     }

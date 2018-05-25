@@ -43,4 +43,7 @@ export class MenubarType extends Vue {
         this.cancelMouseup && this.cancelMouseup()
         this.cancelMousedown && this.cancelMousedown()
     }
+
+    @Prop({ default: 0 })
+    paddingTop!: number
 }
