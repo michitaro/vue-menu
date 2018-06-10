@@ -15,7 +15,7 @@ export default MenubaritemType
 
 <style lang="scss" scoped>
 .menubaritem {
-    display: inline-block;
+    display: table-cell;
     padding: 6pt 0.5em 4pt 0.5em;
 }
 </style>

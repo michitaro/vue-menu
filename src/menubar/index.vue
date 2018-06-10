@@ -13,7 +13,7 @@ export default MenubarType
 
 <style lang="scss" scoped>
 .menubar {
-    display: inline-block;
+    display: table;
     font-family: sans-serif;
     padding: 0 0.5em;
     user-select: none;
