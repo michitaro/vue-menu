@@ -9,7 +9,10 @@ import { MenuStyle, MENU_STYLE_KEY } from "../style"
 
 
 @Component({
-    components: { XMenu: Menu, XKeybinder: Keybinder }
+    components: { XMenu: Menu, XKeybinder: Keybinder },
+    model: {
+        prop: 'vModel',
+    }
 })
 export class MenuitemType extends Vue {
     @Inject(PARENT_MENU_KEY)
@@ -33,6 +36,26 @@ export class MenuitemType extends Vue {
     @Prop({ default: false })
     sync!: boolean
 
+    @Prop()
+    type?: 'radio' | 'checkbox'
+
+    @Prop({ default: null })
+    vModel!: any[] | boolean
+
+    @Prop()
+    value!: any
+
+    created() {
+        // validate props
+        if (this.vModel !== undefined) {
+            assert(this.value !== undefined, 'prop :value must be set')
+            assert(this.type !== undefined && ['radio', 'checkbox'].indexOf(this.type) >= 0, 'prop :type must be one of "radio" or "checkbox"')
+            if (this.type == 'checkbox') {
+                assert(Array.isArray(this.vModel) || typeof (this.vModel) == 'boolean', 'v-model must be an array or boolean')
+            }
+        }
+    }
+
     get keybindHTML() {
         return this.keybind && keybind.html(this.keybind)
     }
@@ -40,6 +63,18 @@ export class MenuitemType extends Vue {
     get style() {
         const { active, disabled } = this.menuStyle
         return { ...(this.active ? active : {}), ...(this.disabled ? disabled : {}) }
+    }
+
+    get showCheckmark() {
+        if (this.type == 'radio')
+            return this.vModel == this.value
+        if (this.type == 'checkbox') {
+            if (Array.isArray(this.vModel))
+                return this.vModel.indexOf(this.value) >= 0
+            else
+                return this.vModel
+        }
+        return this.checked
     }
 
     mounted() {
@@ -79,6 +114,21 @@ export class MenuitemType extends Vue {
         sync.lock(async () => {
             this.sync || await this.flash()
             this.$emit('click')
+            if (this.type == 'radio') {
+                this.$emit('input', this.value)
+            }
+            else if (this.type == 'checkbox') {
+                if (Array.isArray(this.vModel)) {
+                    const i = this.vModel.indexOf(this.value)
+                    if (i >= 0)
+                        this.vModel.splice(i, 1)
+                    else
+                        this.vModel.push(this.value)
+                }
+                else {
+                    this.$emit('input', !this.vModel)
+                }
+            }
             this.parentMenu.close(true, true)
         })
     }
@@ -126,4 +176,10 @@ export class MenuitemType extends Vue {
 
 function sleep(duration: number) {
     return new Promise(resolve => setTimeout(resolve, duration))
+}
+
+function assert(condition: boolean, message: string) {
+    if (!condition) {
+        new Error(message)
+    }
 }

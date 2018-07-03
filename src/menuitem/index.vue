@@ -2,7 +2,7 @@
     <div>
         <x-keybinder v-if="keybind" :source="keybind" :enabled="!disabled" @keybindmatch="$emit('click')" />
         <div class="menuitem" :style="style" @mouseenter.stop="mouseenter" @mouseleave="mouseleave" @mouseup="mouseup" @mousedown.stop.prevent>
-            <div style="padding: 0 0.3em;" :style="{ visibility: checked ? 'visible' : 'hidden' }">&check;</div>
+            <div style="padding: 0 0.3em;" :style="{ visibility: showCheckmark ? 'visible' : 'hidden' }">&check;</div>
             <div class="label">
                 <slot v-if="$slots.body" name="body" />
                 <div v-else v-html="label" />
