@@ -22,14 +22,14 @@
                 <hsc-menu-item label="Check" type="radio" v-model="checked" :value="true" :disabled="checked" />
                 <hsc-menu-item label="Unheck" type="radio" v-model="checked" :value="false" :disabled="!checked" />
                 <hsc-menu-separator/>
-                <hsc-menu-item :label="checked ? '😃 Checked' : '😯 Not Checked'" v-model="checked" type="checkbox" />
-                <!-- <hsc-menu-item :label="checked ? '😃 ' : '😯 '" @click="checked = !checked" :checked="checked" /> can be set :checked manually --> 
+                <hsc-menu-item :label="checked ? '😃 Checked' : '😯 Not Checked'" v-model="checked" />
+                <!-- <hsc-menu-item :label="checked ? '😃 ' : '😯 '" @click="checked = !checked" :checked="checked" /> can be set :checked manually -->
             </hsc-menu-bar-item>
             <hsc-menu-bar-item label="Select">
-                <hsc-menu-item label="Item A" type="checkbox" v-model="selected" value="A" />
-                <hsc-menu-item label="Item B" type="checkbox" v-model="selected" value="B" />
-                <hsc-menu-item label="Item C" type="checkbox" v-model="selected" value="C" />
-                <hsc-menu-item label="Item D" type="checkbox" v-model="selected" value="D" />
+                <hsc-menu-item label="Item A" v-model="selected" value="A" />
+                <hsc-menu-item label="Item B" v-model="selected" value="B" />
+                <hsc-menu-item label="Item C" v-model="selected" value="C" />
+                <hsc-menu-item label="Item D" v-model="selected" value="D" />
                 <hsc-menu-separator/>
                 <hsc-menu-item :label="selected.join(',')" :disabled="true" />
             </hsc-menu-bar-item>

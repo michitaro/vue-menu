@@ -36,11 +36,11 @@ export class MenuitemType extends Vue {
     @Prop({ default: false })
     sync!: boolean
 
-    @Prop()
-    type?: 'radio' | 'checkbox'
+    @Prop({ default: 'checkbox' })
+    type!: 'radio' | 'checkbox'
 
-    @Prop({ default: null })
-    vModel!: any[] | boolean
+    @Prop()
+    vModel?: any[] | boolean
 
     @Prop()
     value!: any
@@ -48,10 +48,12 @@ export class MenuitemType extends Vue {
     created() {
         // validate props
         if (this.vModel !== undefined) {
-            assert(this.value !== undefined, 'prop :value must be set')
-            assert(this.type !== undefined && ['radio', 'checkbox'].indexOf(this.type) >= 0, 'prop :type must be one of "radio" or "checkbox"')
+            assert(['radio', 'checkbox'].indexOf(this.type) >= 0, 'prop :type must be one of "radio" or "checkbox"')
             if (this.type == 'checkbox') {
                 assert(Array.isArray(this.vModel) || typeof (this.vModel) == 'boolean', 'v-model must be an array or boolean')
+            }
+            else if (this.type == 'radio') {
+                assert(this.value !== undefined, 'v-model must be set')
             }
         }
     }
@@ -68,7 +70,7 @@ export class MenuitemType extends Vue {
     get showCheckmark() {
         if (this.type == 'radio')
             return this.vModel == this.value
-        if (this.type == 'checkbox') {
+        if (this.type == 'checkbox' && this.vModel !== undefined) {
             if (Array.isArray(this.vModel))
                 return this.vModel.indexOf(this.value) >= 0
             else
@@ -115,7 +117,7 @@ export class MenuitemType extends Vue {
         if (this.type == 'radio') {
             this.$emit('input', this.value)
         }
-        else if (this.type == 'checkbox') {
+        else if (this.type == 'checkbox' && this.vModel !== undefined) {
             if (Array.isArray(this.vModel)) {
                 const i = this.vModel.indexOf(this.value)
                 const copy = this.vModel.slice()
@@ -185,6 +187,6 @@ function sleep(duration: number) {
 
 function assert(condition: boolean, message: string) {
     if (!condition) {
-        new Error(message)
+        throw new Error(message)
     }
 }
