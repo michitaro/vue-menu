@@ -1,11 +1,11 @@
-import { Vue, Component, Prop, Inject } from "vue-property-decorator"
-import { MenuType, PADDING, PARENT_MENU_KEY } from "../menu/script"
-import Menu from "../menu/index.vue"
-import { MenuitemActivateEvent, MenuCloseEvent } from "../event"
-import { sync } from "../global"
-import { Keybinder } from "../keybinder"
-import * as keybind from "@hscmap/keybind"
-import { MenuStyle, MENU_STYLE_KEY } from "../style"
+import * as keybind from "@hscmap/keybind";
+import { Component, Inject, Prop, Vue } from "vue-property-decorator";
+import { MenuCloseEvent, MenuitemActivateEvent } from "../event";
+import { sync } from "../global";
+import { Keybinder } from "../keybinder";
+import Menu from "../menu/index.vue";
+import { MenuType, PADDING, PARENT_MENU_KEY } from "../menu/script";
+import { MenuStyle, MENU_STYLE_KEY } from "../style";
 
 
 @Component({
@@ -151,7 +151,7 @@ export class MenuitemType extends Vue {
         return childMenu ? (childMenu as MenuType) : undefined
     }
 
-    private mouseenter(e: MouseEvent) {
+    mouseenter(e: MouseEvent) {
         this.disabled || sync.lock(async () => {
             if (this.parentMenu.isOpen) {
                 this.hover = true
@@ -160,13 +160,13 @@ export class MenuitemType extends Vue {
         })
     }
 
-    private mouseleave(e: MouseEvent) {
+    mouseleave(e: MouseEvent) {
         sync.lock(async () => {
             this.parentMenu.isOpen && (this.hover = false)
         })
     }
 
-    private mouseup() {
+    mouseup() {
         this.$slots.body || this.hover && sync.lock(async () => {
             if (this.parentMenu.isOpen && !this.$slots.default)
                 sync.lock(async () => {
