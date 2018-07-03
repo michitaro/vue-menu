@@ -1,6 +1,6 @@
 <template>
     <div>
-        <x-keybinder v-if="keybind" :source="keybind" :enabled="!disabled" @keybindmatch="$emit('click')" />
+        <x-keybinder v-if="keybind" :source="keybind" :enabled="!disabled" @keybindmatch="fire" />
         <div class="menuitem" :style="style" @mouseenter.stop="mouseenter" @mouseleave="mouseleave" @mouseup="mouseup" @mousedown.stop.prevent>
             <div style="padding: 0 0.3em;" :style="{ visibility: showCheckmark ? 'visible' : 'hidden' }">&check;</div>
             <div class="label">

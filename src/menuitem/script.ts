@@ -111,35 +111,26 @@ export class MenuitemType extends Vue {
     }
 
     fire() {
-        sync.lock(async () => {
-            this.sync || await this.flash()
-            this.$emit('click')
-            if (this.type == 'radio') {
-                this.$emit('input', this.value)
-            }
-            else if (this.type == 'checkbox') {
-                if (Array.isArray(this.vModel)) {
-                    const i = this.vModel.indexOf(this.value)
-                    const copy = this.vModel.slice()
-                    if (i >= 0) {
-                        copy.splice(i, 1)
-                    }
-                    else {
-                        copy.push(this.value)
-                    }
-                    this.$emit('input', copy)
+        this.$emit('click')
+        if (this.type == 'radio') {
+            this.$emit('input', this.value)
+        }
+        else if (this.type == 'checkbox') {
+            if (Array.isArray(this.vModel)) {
+                const i = this.vModel.indexOf(this.value)
+                const copy = this.vModel.slice()
+                if (i >= 0) {
+                    copy.splice(i, 1)
                 }
                 else {
-                    this.$emit('input', !this.vModel)
+                    copy.push(this.value)
                 }
+                this.$emit('input', copy)
             }
-            this.parentMenu.close(true, true)
-        })
-    }
-
-    private childMenu() {
-        const childMenu = this.$refs.childMenu
-        return childMenu ? (childMenu as MenuType) : undefined
+            else {
+                this.$emit('input', !this.vModel)
+            }
+        }
     }
 
     private async flash() {
@@ -153,6 +144,11 @@ export class MenuitemType extends Vue {
             }
         }
         this.hover = false
+    }
+
+    private childMenu() {
+        const childMenu = this.$refs.childMenu
+        return childMenu ? (childMenu as MenuType) : undefined
     }
 
     private mouseenter(e: MouseEvent) {
@@ -172,7 +168,12 @@ export class MenuitemType extends Vue {
 
     private mouseup() {
         this.$slots.body || this.hover && sync.lock(async () => {
-            this.parentMenu.isOpen && (this.$slots.default || this.fire())
+            if (this.parentMenu.isOpen && !this.$slots.default)
+                sync.lock(async () => {
+                    this.sync || await this.flash()
+                    this.fire()
+                    this.parentMenu.close(true, true)
+                })
         })
     }
 }
