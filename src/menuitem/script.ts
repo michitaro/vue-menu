@@ -120,10 +120,14 @@ export class MenuitemType extends Vue {
             else if (this.type == 'checkbox') {
                 if (Array.isArray(this.vModel)) {
                     const i = this.vModel.indexOf(this.value)
-                    if (i >= 0)
-                        this.vModel.splice(i, 1)
-                    else
-                        this.vModel.push(this.value)
+                    const copy = this.vModel.slice()
+                    if (i >= 0) {
+                        copy.splice(i, 1)
+                    }
+                    else {
+                        copy.push(this.value)
+                    }
+                    this.$emit('input', copy)
                 }
                 else {
                     this.$emit('input', !this.vModel)
