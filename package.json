@@ -12,7 +12,7 @@
     "gh-pages": "npm run example && npm run standalone && cp standalone/dist/vue-menu-standalone.js example/dist && gh-pages -d example/dist"
   },
   "dependencies": {
-    "@hscmap/keybind": "0.0.4",
+    "@hscmap/keybind": "0.0.5",
     "es6-promise": "^4.2.4",
     "tslib": "^1.9.3",
     "vue": "^2.5.16",
@@ -20,11 +20,11 @@
     "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^8.6.4",
-    "css-loader": "^0.28.11",
+    "autoprefixer": "^8.6.5",
+    "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
     "gh-pages": "^1.2.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.2",
     "raw-loader": "^0.5.1",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
@@ -32,7 +32,7 @@
     "typescript": "^2.9.2",
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.14.0",
+    "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.3"
