@@ -20,7 +20,7 @@
     "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^8.6.5",
+    "autoprefixer": "^9.0.0",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
     "gh-pages": "^1.2.0",
@@ -32,7 +32,7 @@
     "typescript": "^2.9.2",
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.16.0",
+    "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.3"
