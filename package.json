@@ -12,7 +12,7 @@
     "gh-pages": "npm run example && npm run standalone && cp standalone/dist/vue-menu-standalone.js example/dist && gh-pages -d example/dist"
   },
   "dependencies": {
-    "@hscmap/keybind": "0.0.5",
+    "@hscmap/keybind": "0.0.8",
     "es6-promise": "^4.2.4",
     "tslib": "^1.9.3",
     "vue": "^2.5.16",
