@@ -1,5 +1,5 @@
 <template>
-    <div @contextmenu="openMenu" style="display: inline-block;">
+    <div @mousedown="openMenu" style="display: inline-block;">
         <slot/>
         <x-menu ref="menu">
             <slot name="contextmenu" />
@@ -22,9 +22,11 @@ export default class ContextmenuType extends RootlessMenu {
 
 
 function defaultPosition(e: MouseEvent) {
+    const el = e.currentTarget as HTMLElement
+    const rect = el.getBoundingClientRect()
     return {
-        x: e.clientX,
-        y: e.clientY,
+        x: rect.left,
+        y: rect.bottom,
         direction: 'right' as Direction
     }
 }

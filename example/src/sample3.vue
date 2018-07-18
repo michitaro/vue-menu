@@ -13,11 +13,8 @@
                 </hsc-menu-item>
             </template>
         </hsc-menu-context-menu>
-        <hr />
-        <hsc-menu-context-menu style="margin: 50px;" :position="customPosition">
-            <div class="box" style="padding: 1em;">
-                with fixed position
-            </div>
+        <hsc-menu-button-menu style="margin: 50px;" @open="open" @close="close">
+            <button>Click Here</button>
             <template slot="contextmenu">
                 <hsc-menu-item label="MenuItem 1" />
                 <hsc-menu-item label="MenuItem 2" />
@@ -26,27 +23,24 @@
                     <hsc-menu-item label="MenuItem 5" />
                 </hsc-menu-item>
             </template>
-        </hsc-menu-context-menu>
+        </hsc-menu-button-menu>
     </hsc-menu-style-white>
 </template>
 
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+export default Vue.extend({
     methods: {
-        customPosition(e: MouseEvent) {
-            const el = e.currentTarget as HTMLElement
-            const rect = el.getBoundingClientRect()
-            return {
-                x: rect.left,
-                y: rect.bottom,
-                direction: 'right'
-            }
+        open() {
+            console.log('open')
+        },
+        close() {
+            console.log('close')
         }
     }
-}
+})
 </script>
-
 
 
 <style>
