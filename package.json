@@ -30,7 +30,7 @@
     "style-loader": "^0.21.0",
     "ts-loader": "^4.4.2",
     "typescript": "^2.9.2",
-    "vue-loader": "^15.2.4",
+    "vue-loader": "^15.2.5",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8",
