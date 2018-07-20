@@ -168,13 +168,13 @@ export class MenuitemType extends Vue {
         })
     }
 
-    mouseup() {
+    mouseup(e: MouseEvent) {
         this.$slots.body || this.hover && sync.lock(async () => {
             if (this.parentMenu.isOpen && !this.$slots.default)
                 sync.lock(async () => {
                     this.sync || await this.flash()
                     this.fire()
-                    this.parentMenu.close(true, true)
+                    e.shiftKey || this.parentMenu.close(true, true)
                 })
         })
     }
