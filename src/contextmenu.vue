@@ -1,5 +1,5 @@
 <template>
-    <div @contextmenu="openMenu" style="display: inline-block;">
+    <div @contextmenu.prevent.stop="openMenu" style="display: inline-block;">
         <slot/>
         <x-menu ref="menu">
             <slot name="contextmenu" />
