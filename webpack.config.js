@@ -1,4 +1,5 @@
 const { VueLoaderPlugin } = require('vue-loader')
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
     entry: [
@@ -29,12 +30,7 @@ module.exports = {
         ],
     },
     externals: [
-        // include only relative assets
-        function (context, request, callback) {
-            if (!request.match(/(?:^|!)(?:\.|\.\.)?\//))
-                return callback(null, `commonjs ${request}`)
-            callback()
-        }
+        nodeExternals()
     ],
     plugins: [
         new VueLoaderPlugin(),
