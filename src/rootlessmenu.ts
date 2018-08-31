@@ -11,6 +11,13 @@ export class RootlessMenu extends Vue {
     @Prop({ type: Function })
     position!: (e: MouseEvent) => { x: number, y: number, direction: Direction }
 
+    @Prop({ type: Number })
+    menuZIndex?: number
+
+    get menuStyle(): Partial<CSSStyleDeclaration> {
+        return this.menuZIndex == undefined ? {} : { zIndex: String(this.menuZIndex) }
+    }
+
     private cancelMouseup?: () => void
     private cancelMousedown?: () => void
 

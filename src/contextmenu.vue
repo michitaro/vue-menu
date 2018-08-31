@@ -1,7 +1,7 @@
 <template>
     <div @contextmenu="openMenu" style="display: inline-block;">
         <slot/>
-        <x-menu ref="menu">
+        <x-menu ref="menu" :style="menuStyle">
             <slot name="contextmenu" />
         </x-menu>
     </div>
