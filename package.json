@@ -1,6 +1,6 @@
 {
   "name": "@hscmap/vue-menu",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "Vue component for menu & contextmenu",
   "main": "./lib/index.js",
   "types": "./lib/types/index.d.ts",
