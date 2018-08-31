@@ -1,6 +1,8 @@
 <template>
-    <div @mousedown="openMenu" style="display: inline-block;">
-        <slot/>
+    <div style="display: inline-block;">
+        <div @mousedown="openMenu">
+            <slot/>
+        </div>
         <x-menu ref="menu" :style="menuStyle">
             <slot name="contextmenu" />
         </x-menu>
@@ -22,7 +24,7 @@ export default class ContextmenuType extends RootlessMenu {
 
 
 function defaultPosition(e: MouseEvent) {
-    const el = e.currentTarget as HTMLElement
+    const el = (e.currentTarget as HTMLElement).children.item(0)
     const rect = el.getBoundingClientRect()
     return {
         x: rect.left,
