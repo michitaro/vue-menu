@@ -25,6 +25,10 @@ export class RootlessMenu extends Vue {
         return this.$refs.menu as MenuType
     }
 
+    beforeDestroy() {
+        this.clearCancellers()
+    }
+
     openMenu(mousedown: MouseEvent) {
         mousedown.preventDefault()
         this.clearCancellers()
@@ -34,10 +38,12 @@ export class RootlessMenu extends Vue {
         }
 
         this.cancelMouseup = once(document, 'mouseup', mouseup => {
+            this.cancelMouseup = undefined
             if (mouseup.timeStamp - mousedown.timeStamp >= 500)
                 this.close()
             else {
                 this.cancelMousedown = once(document, 'mousedown', (e: MouseEvent) => {
+                    this.cancelMousedown = undefined
                     if (!isContextmenu(e))
                         this.close()
                 })

@@ -23,6 +23,10 @@ export class MenubarType extends Vue {
         this.clearCancellers()
     }
 
+    beforeDestroy() {
+        this.clearCancellers()
+    }
+
     private cancelMouseup?: () => void
     private cancelMousedown?: () => void
 
@@ -32,10 +36,15 @@ export class MenubarType extends Vue {
         this.active = true
         this.clearCancellers()
         this.cancelMouseup = once(document, 'mouseup', mouseup => {
+            this.cancelMouseup = undefined
             if (mouseup.timeStamp - mousedown.timeStamp >= 500)
                 this.deactivate()
-            else
-                this.cancelMousedown = once(document, 'mousedown', () => this.deactivate())
+            else {
+                this.cancelMousedown = once(document, 'mousedown', () => {
+                    this.cancelMousedown = undefined
+                    this.deactivate()
+                })
+            }
         })
     }
 
