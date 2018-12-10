@@ -56,7 +56,8 @@ export class RootlessMenu extends Vue {
 
     private close() {
         this.clearCancellers()
-        this.menu().close(true)
+        const menu = this.menu()
+        menu && menu.close(true)
     }
 
     private clearCancellers() {

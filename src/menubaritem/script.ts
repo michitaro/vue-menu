@@ -29,10 +29,14 @@ export class MenubaritemType extends Vue {
             e.fromChild && this.menubar.deactivate()
         })
         this.menubar.$on(MenubaritemActivateEvent.type, (e: MenubaritemActivateEvent) => {
-            this != e.menubaritem && this.menu().close(false)
+            if (this != e.menubaritem) {
+                const menu = this.menu()
+                menu && menu.close(false)
+            }
         })
         this.menubar.$on(MenubarDactivateEvent.type, (e: MenubarDactivateEvent) => {
-            this.menu().close(true)
+            const menu = this.menu()
+            menu && menu.close(true)
         })
     }
 
