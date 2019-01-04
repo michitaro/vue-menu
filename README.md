@@ -73,7 +73,8 @@ Other examples are available [here](http://michitaro.github.io/vue-menu/).
 See also [vue-window](https://github.com/michitaro/vue-window). This is a window UI component  for vue2 with the same color themes.
 
 # Caveats
-* This component doesn't work on [electron-vue](https://github.com/SimulatedGREG/electron-vue).
+* ~~This component doesn't work on [electron-vue](https://github.com/SimulatedGREG/electron-vue).~~
+  * See [here](https://github.com/michitaro/vue-menu/issues/5#issuecomment-450770617) to use with [electron-vue](https://github.com/SimulatedGREG/electron-vue).
 
 # Contributing
 Any comments, suggestions or PRs are welcome 😀
