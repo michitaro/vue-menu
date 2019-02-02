@@ -24,7 +24,7 @@ export default class ContextmenuType extends RootlessMenu {
 
 
 function defaultPosition(e: MouseEvent) {
-    const el = (e.currentTarget as HTMLElement).children.item(0)
+    const el = (e.currentTarget as HTMLElement).children.item(0)!
     const rect = el.getBoundingClientRect()
     return {
         x: rect.left,
