@@ -7,21 +7,25 @@ import { MenubaritemActivateEvent, MenuCloseEvent, MenubarDactivateEvent } from 
 import { MenuStyle, MENU_STYLE_KEY } from "../style"
 
 
+export const MENUBARITEM_KEY = '@hscmap/vue-menu/menubaritem'
+
+
 @Component({
-    components: { XMenu: Menu }
+    components: { XMenu: Menu },
+    provide() { return { [MENUBARITEM_KEY]: this } }
 })
 export class MenubaritemType extends Vue {
     @Prop({ type: String, required: true })
-    label!: string
+    private label!: string
 
     @Inject(MENUBAR_KEY)
-    menubar!: MenubarType
+    private menubar!: MenubarType
 
     @Inject(MENU_STYLE_KEY)
-    menuStyle!: MenuStyle
+    private menuStyle!: MenuStyle
 
-    hover = false
-    isOpen = false
+    private hover = false
+    private isOpen = false
 
     mounted() {
         this.menu().$on(MenuCloseEvent.type, (e: MenuCloseEvent) => {
@@ -38,6 +42,12 @@ export class MenubaritemType extends Vue {
             const menu = this.menu()
             menu && menu.close(true)
         })
+    }
+
+    onMenuiatemFired() {
+        setTimeout(() => {
+            this.hover = false
+        }, 200)
     }
 
     get style() {

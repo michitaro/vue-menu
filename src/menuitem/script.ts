@@ -5,6 +5,7 @@ import { sync } from "../global";
 import { Keybinder } from "../keybinder";
 import Menu from "../menu/index.vue";
 import { MenuType, PADDING, PARENT_MENU_KEY } from "../menu/script";
+import { MenubaritemType, MENUBARITEM_KEY } from "../menubaritem/script";
 import { MenuStyle, MENU_STYLE_KEY } from "../style";
 
 
@@ -20,6 +21,9 @@ export class MenuitemType extends Vue {
 
     @Inject(MENU_STYLE_KEY)
     menuStyle!: MenuStyle
+
+    @Inject(MENUBARITEM_KEY)
+    menubaritem?: MenubaritemType
 
     @Prop({ type: String, default: "" })
     label!: string
@@ -133,6 +137,7 @@ export class MenuitemType extends Vue {
                 this.$emit('input', !this.vModel)
             }
         }
+        this.menubaritem && this.menubaritem.onMenuiatemFired()
     }
 
     private async flash() {
