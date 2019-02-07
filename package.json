@@ -15,7 +15,7 @@
     "@hscmap/keybind": "0.0.8",
     "es6-promise": "^4.2.5",
     "tslib": "^1.9.3",
-    "vue": "^2.5.22",
+    "vue": "^2.6.3",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^7.3.0"
   },
@@ -31,9 +31,9 @@
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.1",
     "vue-loader": "^15.6.2",
-    "vue-template-compiler": "^2.5.22",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1",
+    "vue-template-compiler": "^2.6.3",
+    "webpack": "^4.29.2",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"
