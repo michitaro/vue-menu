@@ -2,10 +2,12 @@ import { Component, Vue, Prop } from "vue-property-decorator"
 import Menu from "./menu/index.vue"
 import { MenuType, Direction } from "./menu/script"
 import { once } from "./event"
+import { MENUBARITEM_KEY } from "./menubaritem/script";
 
 
 @Component({
-    components: { XMenu: Menu }
+    components: { XMenu: Menu },
+    provide() { return { [MENUBARITEM_KEY]: undefined } },
 })
 export class RootlessMenu extends Vue {
     @Prop({ type: Function })
