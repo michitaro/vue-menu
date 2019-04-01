@@ -33,6 +33,12 @@
                 <hsc-menu-separator/>
                 <hsc-menu-item :label="selected.join(',')" :disabled="true" />
             </hsc-menu-bar-item>
+            <hsc-menu-bar-item label="Keybind">
+                <hsc-menu-item label="Ctrl+X" keybind="ctrl+x" @click="window.alert('ctrl+x')" />
+                <hsc-menu-item label="Alt+X" keybind="alt+x" @click="window.alert('alt+x')" />
+                <hsc-menu-item label="Shift+Alt+X" keybind="shift+alt+x" @click="window.alert('shift+alt+x')" />
+                <hsc-menu-item label="F2" keybind="F2" @click="window.alert('F2')" />
+            </hsc-menu-bar-item>
             <hsc-menu-bar-item label="Window.open">
                 <hsc-menu-item label="vue-menu" @click="window.open('https://github.com/michitaro/vue-menu')" :sync="true" />
                 <hsc-menu-item label="vue-window" @click="window.open('https://github.com/michitaro/vue-window')" :sync="true" />

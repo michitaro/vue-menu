@@ -5,7 +5,7 @@ class Entry {
 
 
 const root = new Entry('#root')
-const fileList = require('raw-loader!./filelist.txt') as string
+const fileList = require('raw-loader!./filelist.txt').default as string
 const paths = fileList.split('\n').filter(path => path.length > 0)
 
 

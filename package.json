@@ -12,28 +12,28 @@
     "gh-pages": "npm run example && npm run standalone && cp standalone/dist/vue-menu-standalone.js example/dist && gh-pages -d example/dist"
   },
   "dependencies": {
-    "@hscmap/keybind": "^0.1.0",
+    "@hscmap/keybind": "^0.2.0",
     "es6-promise": "^4.2.6",
     "tslib": "^1.9.3",
-    "vue": "^2.6.8",
-    "vue-class-component": "^7.0.1",
-    "vue-property-decorator": "^8.0.0"
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.4.10",
-    "css-loader": "^2.1.0",
+    "autoprefixer": "^9.5.0",
+    "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
-    "raw-loader": "^1.0.0",
+    "raw-loader": "^2.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
-    "typescript": "^3.3.3333",
+    "typescript": "^3.4.1",
     "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.8",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"
