@@ -4,6 +4,13 @@ import { MenuType, Direction } from "./menu/script"
 import { once } from "./event"
 import { MENUBARITEM_KEY } from "./menubaritem/script";
 
+export const openedRootlessMenus: RootlessMenu[] = []
+
+function closeOthres() {
+    while (openedRootlessMenus.length > 0) {
+        openedRootlessMenus.pop()!.close()
+    }
+}
 
 @Component({
     components: { XMenu: Menu },
@@ -33,6 +40,8 @@ export class RootlessMenu extends Vue {
 
     openMenu(mousedown: MouseEvent) {
         mousedown.preventDefault()
+        closeOthres()
+        openedRootlessMenus.push(this)
         this.clearCancellers()
 
         if (this.menu().isOpen) {
@@ -56,7 +65,7 @@ export class RootlessMenu extends Vue {
         this.menu().open(position.x, position.y, position.direction)
     }
 
-    private close() {
+    close() {
         this.clearCancellers()
         const menu = this.menu()
         menu && menu.close(true)
