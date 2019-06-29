@@ -1,8 +1,7 @@
 # vue-menu
 ## Introduction
-Recent web applications are mainly for mobile environments. Therefore UIs premised on mouse operation such as window, context-menu, nested-menu and so on are no longer mainstream.
-However the context-menu and nested-menu are still effective way to have operations on deeply structured data.
-This package is an implementation of {nested,context}-menu for PC environments as a Vue Component.
+
+Recent web technologies focus on mobile environments. UIs premised on mouse operation such as window, context-menu, nested-menu and so on are no longer mainstream. However hierarchical structure -- context-menu and nested-menu -- is still effective. This package is an implementation of {nested,context}-menu for PC environments as a Vue Component.
 
 ### [Working Demo](https://michitaro.github.io/vue-menu)
 ### Features
