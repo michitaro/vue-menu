@@ -15,7 +15,7 @@ Recent web technologies focus on mobile environments. UIs premised on mouse oper
 * Customizable color
 * Menuitem can contain any HTML not only text
 * Tested on Safari10, Chrome60, Firefox55, IE11, Edge38 for PCs
-* Does not work on mobile devices 😞
+* ~~Does not work on mobile devices 😞~~
 
 ![Screenshot](./docs/screenshot.png)
 
